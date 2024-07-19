@@ -11,3 +11,7 @@ while True:
     key = cv2.waitKey(0)
     if key == 27:
         break
+
+
+webcam.release()
+cv2.destroyAllWindows()

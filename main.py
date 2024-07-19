@@ -19,4 +19,5 @@ while True:
         break
 
 
-w
+webcam.release()
+cv2.destroyAllWindows()

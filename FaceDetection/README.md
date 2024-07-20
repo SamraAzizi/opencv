@@ -1,6 +1,6 @@
 # Face Detection using OpenCV
 
-This project demonstrates basic face detection using OpenCV's Haar Cascades.
+This project demonstrates basic face detection using OpenCV's Haar Cascades. It detects faces in an image and draws rectangles around them.
 
 ## Prerequisites
 

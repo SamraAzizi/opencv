@@ -44,7 +44,14 @@ while True:
                     x2 = x
                     y2 = y
 
-                cv2.line(image, (x1, y1), (x2, y2), (0, 255, 0),5)
+        distance = ((x2-x1) **2 + (y2-y1) ** 2)**(0.5) // 4
+
+        cv2.line(image, (x1, y1), (x2, y2), (0, 255, 0),5)
+
+        if distance > 50 :
+            pyautogui.press("volumeup")
+        else:
+            pyautogui.press("volumedown")
     # Display the image
     cv2.imshow("Hand Volume Control Using Python", image)
 

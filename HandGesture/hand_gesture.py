@@ -1,38 +1,49 @@
 import cv2
+import mediapipe as mp
 
-webcame = cv2.VideoCapture(0)
+# Initialize the webcam
+webcam = cv2.VideoCapture(0)
 
-my_hands = mp.solutions.hans.Hands()
-drwaing_utils = mp.solutions.drawing_utlis
+# Initialize MediaPipe Hands and drawing utilities
+mp_hands = mp.solutions.hands
+hands = mp_hands.Hands()
+mp_drawing = mp.solutions.drawing_utils
 
 while True:
-    _, image = webcame.read()
-    frame_width, frame_height = image.shape()
+    ret, image = webcam.read()
+    if not ret:
+        break
 
-    
+    frame_height, frame_width, _ = image.shape
+
+    # Convert the BGR image to RGB
     rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    output = my_hands.process(rgb_image)
-    hands = output.multi_hand_landmarks
-    if hands:
-        for hand in hands:
-            drwaing_utils.draw_landmarks(image, hand)
-            landmarks = hand.handmark
-            for id, landmark in enumerate(landmarks):
+
+    # Process the image and find hands
+    output = hands.process(rgb_image)
+    hands_landmarks = output.multi_hand_landmarks
+
+    if hands_landmarks:
+        for hand_landmarks in hands_landmarks:
+            # Draw hand landmarks
+            mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+
+            for id, landmark in enumerate(hand_landmarks.landmark):
                 x = int(landmark.x * frame_width)
                 y = int(landmark.y * frame_height)
                 if id == 8:
-                    cv2.circle(img= image, center = (x, y), radius=8, color = (0,255, 255), thickness = 3)
-
+                    cv2.circle(image, (x, y), 8, (0, 255, 255), 3)
                 if id == 4:
-                    cv2.circle(img= image, center = (x, y), radius=8, color = (0,0, 255), thickness = 3)
+                    cv2.circle(image, (x, y), 8, (0, 0, 255), 3)
 
-
+    # Display the image
     cv2.imshow("Hand Volume Control Using Python", image)
-    key = cv2.waitKey(10)
 
+    # Break the loop on 'ESC' key press
+    key = cv2.waitKey(10)
     if key == 27:
         break
 
-
-webcame.release()
+# Release resources
+webcam.release()
 cv2.destroyAllWindows()

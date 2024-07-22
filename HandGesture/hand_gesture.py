@@ -1,5 +1,7 @@
 import cv2
 import mediapipe as mp
+import pyautogui
+
 
 x1 = y1 = x2 = y2 = 0
 
@@ -15,6 +17,7 @@ while True:
     ret, image = webcam.read()
     if not ret:
         break
+    image = cv2.flip(image, 1)
 
     frame_height, frame_width, _ = image.shape
 

@@ -1,6 +1,8 @@
 import cv2
 import mediapipe as mp
 
+x1 = y1 = x2 = y2 = 0
+
 # Initialize the webcam
 webcam = cv2.VideoCapture(0)
 
@@ -33,9 +35,16 @@ while True:
                 y = int(landmark.y * frame_height)
                 if id == 8:
                     cv2.circle(image, (x, y), 8, (0, 255, 255), 3)
+
+                    x1 = x
+                    y1 = y
+                
                 if id == 4:
                     cv2.circle(image, (x, y), 8, (0, 0, 255), 3)
+                    x2 = x
+                    y2 = y
 
+                cv2.line(image, (x1, y1), (x2, y2), (0, 255, 0),5)
     # Display the image
     cv2.imshow("Hand Volume Control Using Python", image)
 

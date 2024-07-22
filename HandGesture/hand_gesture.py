@@ -14,6 +14,11 @@ while True:
     if hands:
         for hand in hands:
             drwaing_utils.draw_landmarks(image, hand)
+            landmarks = hand.handmark
+            for id, _landmark in enumerate(landmarks):
+                if id == 8:
+                    cv2.circle(img= image, center = (x, y))
+
 
     cv2.imshow("Hand Volume Control Using Python", image)
     key = cv2.waitKey(10)

@@ -7,6 +7,8 @@ drwaing_utils = mp.solutions.drawing_utlis
 
 while True:
     _, image = webcame.read()
+    frame_width, frame_height = image.shape()
+
     
     rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     output = my_hands.process(rgb_image)
@@ -15,7 +17,9 @@ while True:
         for hand in hands:
             drwaing_utils.draw_landmarks(image, hand)
             landmarks = hand.handmark
-            for id, _landmark in enumerate(landmarks):
+            for id, landmark in enumerate(landmarks):
+                x = int(landmark.x * frame_width)
+                y = int(landmark.y * frame_height)
                 if id == 8:
                     cv2.circle(img= image, center = (x, y))
 

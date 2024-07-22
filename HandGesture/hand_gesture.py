@@ -21,7 +21,10 @@ while True:
                 x = int(landmark.x * frame_width)
                 y = int(landmark.y * frame_height)
                 if id == 8:
-                    cv2.circle(img= image, center = (x, y))
+                    cv2.circle(img= image, center = (x, y), radius=8, color = (0,255, 255), thickness = 3)
+
+                if id == 4:
+                    cv2.circle(img= image, center = (x, y), radius=8, color = (0,0, 255), thickness = 3)
 
 
     cv2.imshow("Hand Volume Control Using Python", image)

@@ -27,6 +27,9 @@ You can install the necessary dependencies using pip:
 pip install opencv-python mediapipe pyautogui
 
 
+
+
+
 ## Features
 
 - **Hand Tracking**: Uses MediaPipe to track hand landmarks.

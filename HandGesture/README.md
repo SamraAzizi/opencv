@@ -3,7 +3,6 @@
 
 This project uses a webcam to control the system volume based on hand gestures. The project utilizes OpenCV for image processing, MediaPipe for hand tracking, and PyAutoGUI for controlling the volume.
 - [Prerequisites](#prerequisites)
-- [Installation](#installation)
 - [Features](#features)
 - [Notes](#notes)
 - [Troubleshooting](#troubleshooting)
@@ -36,3 +35,7 @@ Ensure you have the following libraries installed:
 - **Import Errors**: If the script fails to import the required libraries, ensure they are installed correctly using pip:
   ```bash
   pip install opencv-python mediapipe pyautogui
+  - **Webcam Issues**: If the webcam does not start, ensure it is properly connected and not being used by another application.
+- **Detection Issues**: If hand landmarks are not detected, ensure good lighting conditions and place your hand directly in front of the camera.
+- **Volume Control Issues**: If the volume control is not responsive, consider adjusting the threshold distance value in the script to better suit your needs.
+

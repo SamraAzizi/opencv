@@ -17,10 +17,6 @@ Ensure you have the following libraries installed:
 - MediaPipe
 - PyAutoGUI
 
-You can install these dependencies using pip:
-
-```bash
-pip install opencv-python mediapipe pyautogui
 
 
 ## Features

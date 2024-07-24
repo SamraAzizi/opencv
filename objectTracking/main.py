@@ -3,6 +3,9 @@ import cv2
 # Provide the full path to the video file if it's not in the same directory
 cap = cv2.VideoCapture("C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\objectTracking\\highway1.mp4")
 
+#object detection from stable camera
+
+object_detector = cv2.createBackgroundSubtractorMOG2()
 while True:
     ret, frame = cap.read()
 

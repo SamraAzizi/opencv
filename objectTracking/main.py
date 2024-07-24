@@ -1,27 +1,18 @@
 import cv2
 
-cap = cv2.VideoCapture("highway.mp4")
-
-if not cap.isOpened():
-    print("Error: Could not open video file.")
-    exit()
-
-frame_count = 0
+# Provide the full path to the video file if it's not in the same directory
+cap = cv2.VideoCapture("C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\objectTracking\\highway1.mp4")
 
 while True:
     ret, frame = cap.read()
-    
-    if not ret:
-        print(f"Error: Could not read frame {frame_count} or end of video.")
-        break
 
-    print(f"Frame {frame_count} dimensions: {frame.shape}")
-    frame_count += 1
+    if not ret:
+        break  # break the loop if the frame cannot be read
 
     cv2.imshow("Frame", frame)
 
-    key = cv2.waitKey(30)
-    if key == 27:  # Escape key
+    # Add a delay to give the window a chance to display the frame
+    if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 cap.release()

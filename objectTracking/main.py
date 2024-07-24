@@ -12,7 +12,10 @@ while True:
     if not ret:
         break  # break the loop if the frame cannot be read
 
+    mask = object_detector.apply(frame)
+
     cv2.imshow("Frame", frame)
+    cv2.imshow("Mask" ,mask)
 
     # Add a delay to give the window a chance to display the frame
     if cv2.waitKey(1) & 0xFF == ord('q'):

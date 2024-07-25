@@ -24,6 +24,7 @@ while True:
     #object detection
 
     mask = object_detector.apply(roi)
+    _, mask = cv2.threshold(mask, 254, 255, cv2.THRESH_BINARY)
 
     contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 

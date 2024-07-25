@@ -9,13 +9,17 @@ object_detector = cv2.createBackgroundSubtractorMOG2()
 while True:
     ret, frame = cap.read()
 
-    #extract regionof interest
+    
 
     height, width , _ = frame.shape
     print(height, width)
 
     if not ret:
         break  # break the loop if the frame cannot be read
+
+    #extract regionof interest
+
+    roi = frame[50: 700 ,30:600]
 
     #object detection
 
@@ -33,6 +37,7 @@ while True:
 
             cv2.drawContours(frame, [cnt], -1, (0,255,0), 2)
 
+    cv2.imshow("roi", roi)
     cv2.imshow("Frame", frame)
     cv2.imshow("Mask" ,mask)
 

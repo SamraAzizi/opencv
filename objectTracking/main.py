@@ -33,6 +33,8 @@ while True:
 
     contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
+    detections = []
+
     for cnt in contours:
 
         #calculate area nad remove small elements
@@ -44,6 +46,8 @@ while True:
             #cv2.drawContours(roi, [cnt], -1, (0,255,0), 2)
             x, y, w, h = cv2.boundingRect(cnt)
             cv2.rectangle(roi, (x,y),(x+w, y+h), (0, 255, 0), 3)
+
+            detections.append([x,y,w,h])
 
     cv2.imshow("roi", roi)
     cv2.imshow("Frame", frame)

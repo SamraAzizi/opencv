@@ -1,4 +1,9 @@
 import cv2
+from tracker import *
+
+#create trakcer object
+
+tracker = EuclidearDistTracker()
 
 # Provide the full path to the video file if it's not in the same directory
 cap = cv2.VideoCapture("C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\objectTracking\\highway1.mp4")

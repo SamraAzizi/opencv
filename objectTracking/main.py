@@ -1,33 +1,27 @@
 import cv2
 from tracker import *
 
-#create trakcer object
-
+# Create tracker object
 tracker = EuclidearDistTracker()
 
 # Provide the full path to the video file if it's not in the same directory
 cap = cv2.VideoCapture("C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\objectTracking\\highway1.mp4")
 
-#object detection from stable camera
+# Object detection from stable camera
+object_detector = cv2.createBackgroundSubtractorMOG2(history=100, varThreshold=40)
 
-object_detector = cv2.createBackgroundSubtractorMOG2(history = 100, varThreshold = 40)
 while True:
     ret, frame = cap.read()
-
     
-
-    height, width , _ = frame.shape
-    
-
     if not ret:
-        break  # break the loop if the frame cannot be read
+        break  # Break the loop if the frame cannot be read
 
-    #extract regionof interest
+    height, width, _ = frame.shape
 
-    roi = frame[50: 700 ,30:600]
+    # Extract region of interest
+    roi = frame[50:700, 30:600]
 
-    #object detection
-
+    # Object detection
     mask = object_detector.apply(roi)
     _, mask = cv2.threshold(mask, 254, 255, cv2.THRESH_BINARY)
 
@@ -36,35 +30,25 @@ while True:
     detections = []
 
     for cnt in contours:
-
-        #calculate area nad remove small elements
-
+        # Calculate area and remove small elements
         area = cv2.contourArea(cnt)
-
-        if area < 100:
-
-            #cv2.drawContours(roi, [cnt], -1, (0,255,0), 2)
+        if area > 100:
             x, y, w, h = cv2.boundingRect(cnt)
-            cv2.rectangle(roi, (x,y),(x+w, y+h), (0, 255, 0), 3)
+            cv2.rectangle(roi, (x, y), (x + w, y + h), (0, 255, 0), 3)
+            detections.append([x, y, w, h])
 
-            detections.append([x,y,w,h])
-
-            #object tracking
-    
+    # Object tracking
     boxes_id = tracker.update(detections)
 
     for box_id in boxes_id:
-        x,y,w,h, id = box_id
-        cv2.putText(roi, str(id), (x,y -125), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
-        cv2.reactangle(roi, (x,y),(x+w, y+h), (0,255,0),3)
+        x, y, w, h, id = box_id
+        cv2.putText(roi, str(id), (x, y - 15), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
+        cv2.rectangle(roi, (x, y), (x + w, y + h), (0, 255, 0), 3)
 
-
-
-    cv2.imshow("roi", roi)
+    cv2.imshow("ROI", roi)
     cv2.imshow("Frame", frame)
-    cv2.imshow("Mask" ,mask)
+    cv2.imshow("Mask", mask)
 
-    # Add a delay to give the window a chance to display the frame
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 

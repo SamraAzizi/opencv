@@ -1,6 +1,7 @@
 import cv2
 from tracker import *
 
+
 # Create tracker object
 tracker = EuclidearDistTracker()
 

@@ -52,7 +52,11 @@ while True:
             #object tracking
     
     boxes_id = tracker.update(detections)
-    print(boxes_id)
+
+    for box_id in boxes_id:
+        x,y,w,h, id = box_id
+        cv2.reactangle(roi, (x,y),(x+w, y+h), (0,255,0),3)
+
 
 
     cv2.imshow("roi", roi)

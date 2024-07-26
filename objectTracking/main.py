@@ -55,6 +55,7 @@ while True:
 
     for box_id in boxes_id:
         x,y,w,h, id = box_id
+        cv2.putText(roi, str(id), (x,y -125), cv2.FONT_HERSHEY_PLAIN, 1, (255, 0, 0), 2)
         cv2.reactangle(roi, (x,y),(x+w, y+h), (0,255,0),3)
 
 

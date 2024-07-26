@@ -58,11 +58,4 @@ while True:
     # Display the image
     cv2.imshow("Hand Volume Control Using Python", image)
 
-    # Break the loop on 'ESC' key press
-    key = cv2.waitKey(10)
-    if key == 27:
-        break
-
-# Release resources
-webcam.release()
-cv2.destroyAllWindows()
+    # Bres()

@@ -49,6 +49,12 @@ while True:
 
             detections.append([x,y,w,h])
 
+            #object tracking
+    
+    boxes_id = tracker.update(detections)
+    print(boxes_id)
+
+
     cv2.imshow("roi", roi)
     cv2.imshow("Frame", frame)
     cv2.imshow("Mask" ,mask)

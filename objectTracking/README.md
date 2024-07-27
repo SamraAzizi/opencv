@@ -1,46 +1,49 @@
-# Hand Gesture Recognition for Volume Control
+# Object Tracking using OpenCV
 
-This project demonstrates hand gesture recognition to control the volume of your computer. It uses a webcam to detect hand gestures and OpenCV, MediaPipe, and pyautogui libraries to process the gestures and control the system volume.
+This project demonstrates object tracking using a webcam or video file. It uses OpenCV for video processing and tracking objects based on Euclidean distance.
 
 ## Features
 
-- Detects hand gestures using a webcam
-- Controls system volume based on recognized gestures
-- Real-time gesture recognition
+- Detects and tracks objects from a stable camera
+- Draws bounding boxes and IDs around detected objects
+- Real-time tracking
 
 ## Requirements
 
 - Python 3.x
 - OpenCV
-- MediaPipe
-- pyautogui
 
 ## Installation
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/hand-gesture-volume-control.git
+    git clone https://github.com/yourusername/object-tracking.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd hand-gesture-volume-control
+    cd object-tracking
     ```
 
-3. Install the required libraries:
+3. Install the required library:
 
     ```bash
-    pip install opencv-python mediapipe pyautogui
+    pip install opencv-python
     ```
 
 ## Usage
 
-1. Ensure your webcam is connected and working.
+1. Ensure your video file is available. Provide the full path to the video file if it's not in the same directory.
 
 2. Run the script:
 
     ```bash
-    python hand_gesture_volume_control.py
+    python object_tracking.py
     ```
+
+## Notes
+
+- Make sure to replace the path in `cap = cv2.VideoCapture("C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\objectTracking\\highway1.mp4")` with the actual path to your video file.
+- The `tracker.py` file should contain the `EuclidearDistTracker` class definition for tracking objects based on Euclidean distance.

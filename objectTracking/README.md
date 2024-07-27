@@ -1,4 +1,8 @@
-# Object Trackin
+# Object Tracking using OpenCV
+
+This project demonstrates object tracking using a webcam or video file. It uses OpenCV for video processing and tracking objects based on Euclidean distance.
+
+## Features
 
 - Detects and tracks objects from a stable camera
 - Draws bounding boxes and IDs around detected objects

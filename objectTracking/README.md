@@ -40,7 +40,7 @@ This project demonstrates object tracking using a webcam or video file. It uses 
 2. Run the script:
 
     ```bash
-    python object_tracking.py
+    python main.py
     ```
 
 ## Notes

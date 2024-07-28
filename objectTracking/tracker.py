@@ -1,4 +1,10 @@
-# Save this as tracker.py in the same directory as your main script
+class EuclidearDistTracker:
+    def __init__(self):
+        # Store the center positions of the objects
+        self.center_points = {}
+        # Keep the count of the ID
+        # Each time a new object is detected, the count will increase by one
+        self.id_count = 0
 
 
 

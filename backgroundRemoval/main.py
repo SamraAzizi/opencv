@@ -2,6 +2,7 @@ import cv2
 import cvzone
 from cvzone import SelfieSegmentation
 import os
+import cv2
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 640)

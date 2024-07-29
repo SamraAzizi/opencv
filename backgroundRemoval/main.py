@@ -12,6 +12,4 @@ while True:
     success, img = cap.read()
     imgOut = segmentor.removeBG(img, (255,0,255))
 
-    cv2.imshow("Image", img)
-    cv2.imshow("ImageOut", imgOut)
-    cv2.waitKey(1)
+    

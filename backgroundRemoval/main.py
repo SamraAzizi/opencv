@@ -10,9 +10,11 @@ cap.set(cv2.CAP_PROP_FPS, 60)
 segmentor = SelfieSegmentation()
 fpsReader = cvzone.FPS()
 
+imgBg = cv2.imread("Images/2.jpg")
+
 while True:
     success, img = cap.read()
-    imgOut = segmentor.removeBG(img, (255,0,255), threshold = 0.8)
+    imgOut = segmentor.removeBG(img, imgBg, threshold = 0.8)
     
 
 

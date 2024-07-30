@@ -10,7 +10,9 @@ segmentor = SelfieSegmentation()
 
 while True:
     success, img = cap.read()
-    imgOut = segmentor.removeBG(img, (255,0,255))
+    imgOut = segmentor.removeBG(img, (255,0,255), threshold = 0.8)
+
+    imgStacked = cvzone.stackImages([img, imgOut], 2, 1)
 
     cv2.imshow("Image", img)
     cv2.imshow("ImageOut", imgOut)

@@ -1,13 +1,14 @@
 import cv2
-import cvzone
+
 import mediapipe as mp
-import os
+
 import numpy as np
 
 cap = cv2.VideoCapture(0)
 
 imgBg = cv2.imread("Images/2.jpg")
 segmentation = mp.solutions.selfie_segmentation.SelfieSegmentation(model_selection = 1)
+
 while cap.isOpened():
     ret, frame = cap.read()
     height, width, channel = frame.shape
@@ -18,19 +19,18 @@ while cap.isOpened():
 
     rsm = np.stack((mask, )*3, axis = -1)
 
-    condition = rsm> 0.6
+    condition = rsm > 0.6
     condition = np.reshape(condition, (height, width, 3))
 
-    background = cv2.resize(background, (width, height))
+    background = cv2.resize(imgBg, (width, height))
 
     output = np.where(condition, frame, background)
 
     cv2.imshow("output", output)
 
     k = cv2.waitKey(30) & 0xFF
-    if k == (27):
+    if k == 27:
         break
 
-
 cap.release()
-cap.destroyAllWindows()
+cv2.destroyAllWindows()

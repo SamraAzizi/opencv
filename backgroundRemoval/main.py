@@ -9,7 +9,12 @@ cap = cv2.VideoCapture(0)
 imgBg_path = "C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\backgroundRemoval\\images\\hey.jpg"
 
 
-imgB
+imgBg = cv2.imread(imgBg_path)
+
+
+segmentation = mp.solutions.selfie_segmentation.SelfieSegmentation(model_selection=1)
+
+while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break

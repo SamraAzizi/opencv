@@ -1,13 +1,14 @@
 import cv2
 import cvzone
-from cvzone import SelfieSegmentation
+import mediapipe as mp
 import os
+import numpy as np
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 640)
 cap.set(4, 480)
 cap.set(cv2.CAP_PROP_FPS, 60)
-segmentor = SelfieSegmentation()
+segmentor = mp.solutions.selfie_segmentation.SelfieSegmentation(model_selection = 1)
 fpsReader = cvzone.FPS()
 
 imgBg = cv2.imread("Images/2.jpg")

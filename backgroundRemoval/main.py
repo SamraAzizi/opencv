@@ -1,5 +1,5 @@
 import cv2
-import cvzone
+
 import mediapipe as mp
 import os
 import numpy as np

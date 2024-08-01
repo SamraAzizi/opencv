@@ -5,9 +5,9 @@ This project implements a background removal system using a webcam, OpenCV, and 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [Features](#features)
 - [Requirements](#requirements)
+- [Usage](#usage)
 
 
 ## Installation

@@ -8,8 +8,7 @@ This project implements a background removal system using a webcam, OpenCV, and 
 - [Usage](#usage)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Installation
 
@@ -20,6 +19,16 @@ git clone https://github.com/yourusername/background-removal.git
 cd background-removal
 
 ```
+
+
+## Usage
+
+1. Place your background image in the specified path or update the `imgBg_path` variable in the code to point to your image:
+
+```python
+imgBg_path = "C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\backgroundRemoval\\images\\hey.jpg"
+
+
 ## Features
 
 - Replaces the background of the video feed with a specified image.

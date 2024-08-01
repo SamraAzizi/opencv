@@ -19,14 +19,3 @@ This project implements a background removal system using a webcam, OpenCV, and 
 git clone https://github.com/yourusername/background-removal.git
 cd background-removal
 
-## Features
-
-- Replaces the background of the video feed with a specified image.
-- Uses MediaPipe's Selfie Segmentation for accurate background removal.
-
-## Requirements
-
-- Python 3.x
-- OpenCV
-- MediaPipe
-- NumPy

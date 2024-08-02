@@ -3,6 +3,8 @@ from PIL import Image
 import pytesseract
 import os
 
+
+'''
 # Use the absolute path to the image file
 image_path = r"C:\Users\CPCM\OneDrive\Desktop\opencv\textExtraction(OCR)\text.jpg"
 
@@ -21,3 +23,14 @@ text = pytesseract.image_to_string(image, config=my_config)
 
 # Print the extracted text
 print(text)
+
+
+'''
+
+
+##########################################
+
+my_config = r"--psm 6 --oem 3"
+img = cv2.imread("txt.jpg")
+
+height, width, _ = img.shape()

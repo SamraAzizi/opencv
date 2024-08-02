@@ -25,12 +25,17 @@ text = pytesseract.image_to_string(image, config=my_config)
 print(text)
 
 
-'''
+
 
 
 ##########################################
+'''
+
 
 my_config = r"--psm 6 --oem 3"
 img = cv2.imread("txt.jpg")
 
 height, width, _ = img.shape()
+
+boxes = pytesseract.image_to_boxes(img, config=my_config)
+print(boxes)

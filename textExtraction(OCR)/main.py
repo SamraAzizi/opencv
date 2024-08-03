@@ -31,7 +31,7 @@ for i in range(amount_of_boxes):
         (x, y, width, height) = (data['left'][i], data['top'][i],  data['width'][i], data['height'][i])
 
         img = cv2.rectangle(img, (x,y), (x+width, y + height), (0,255,0), 2)
-        img = cv2.putText(img, data['text'][i], (x,y+height + 20), cv2.FONT_HERSHEY_SIMPLEX, )
+        img = cv2.putText(img, data['text'][i], (x,y+height + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.7,(0,255,0), 2,cv2.LINE_AA)
 
 cv2.imshow("Image", img)
 cv2.waitKey(0)

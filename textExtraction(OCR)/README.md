@@ -30,18 +30,3 @@ You also need to have Tesseract-OCR installed on your system. You can download i
 Ensure that Tesseract-OCR is added to your system PATH.
 
 ## Usage
-
-1. Place your image in the specified path. Update the `img = cv2.imread(r"C:\path\to\your\image.jpg")` line in the code to the correct path of your image file.
-
-2. Run the script:
-
-```sh
-python script.py
-```
-
-## The script will:
-
-- Load the image.
-- Use Tesseract to detect text and its bounding boxes.
-- Draw rectangles around the detected text with confidence levels above 80%.
-- Display the processed image with detected text highlighted.

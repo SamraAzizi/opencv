@@ -20,3 +20,20 @@ Install the required Python libraries using pip:
 
 ```sh
 pip install opencv-python pillow pytesseract
+```
+
+
+## Tesseract-OCR
+
+You also need to have Tesseract-OCR installed on your system. You can download it from the official [Tesseract GitHub repository](https://github.com/tesseract-ocr/tesseract).
+
+Ensure that Tesseract-OCR is added to your system PATH.
+
+## Usage
+
+1. Place your image in the specified path. Update the `img = cv2.imread(r"C:\path\to\your\image.jpg")` line in the code to the correct path of your image file.
+
+2. Run the script:
+
+```sh
+python script.py

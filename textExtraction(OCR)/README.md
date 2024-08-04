@@ -37,3 +37,11 @@ Ensure that Tesseract-OCR is added to your system PATH.
 
 ```sh
 python script.py
+
+
+## The script will:
+
+- Load the image.
+- Use Tesseract to detect text and its bounding boxes.
+- Draw rectangles around the detected text with confidence levels above 80%.
+- Display the processed image with detected text highlighted.

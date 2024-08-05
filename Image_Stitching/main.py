@@ -15,3 +15,7 @@ for folder in myFolders:
         curImg = cv2.imread(f'{path}/{imgN}')
         curImg = cv2.resize(curImg, (0,0), None, 0.2, 0.2)
         images.append(curImg)
+
+
+    stitcher = cv2.Stitcher.create()
+    (status, result) = stitcher.stitch(images)

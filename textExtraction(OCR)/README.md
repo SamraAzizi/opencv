@@ -4,7 +4,11 @@ This project demonstrates how to perform Optical Character Recognition (OCR) usi
 
 
 
-
+## Table of Contents
+- [Prerequisites](#Prerequisites)
+- [Installation](#installation)
+- [Tesseract-OCR](#Tesseract-OCR)
+- [Usage](#usage)
 
 
 ## Prerequisites

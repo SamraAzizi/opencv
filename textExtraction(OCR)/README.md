@@ -3,11 +3,7 @@
 This project demonstrates how to perform Optical Character Recognition (OCR) using OpenCV and Tesseract. The code loads an image, processes it with Tesseract to extract text, and then highlights the detected text on the image.
 
 
-## Table of Contents
-- [Prerequisites](#Prerequisites)
-- [Installation](#installation)
-- [Tesseract-OCR](#Tesseract-OCR)
-- [Usage](#usage)
+
 
 
 

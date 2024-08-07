@@ -1,6 +1,8 @@
 import cv2
 import os
 
+
+
 # Define the main folder path
 mainFolder = 'Image_Stitching/Images'
 
@@ -19,7 +21,7 @@ for file in myFiles:
         print(f'Processing file: {filePath}')
         curImg = cv2.imread(filePath)
         if curImg is not None:
-            curImg = cv2.resize(curImg, (0,0), fx=0.5, fy=0.5)  # Adjust the scale if needed
+            curImg = cv2.resize(curImg, (0,0), fx=0.5, fy=0.5) 
             images.append(curImg)
         else:
             print(f"Failed to read image: {filePath}")

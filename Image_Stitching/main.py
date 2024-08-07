@@ -18,12 +18,7 @@ if os.path.isdir(mainFolder):
         itemPath = os.path.join(mainFolder, item)
         if os.path.isfile(itemPath):
             print(f"Processing file: {itemPath}")
-            # Add your file processing code here
-            
-            # Example: Assuming you are processing images
-            # You can replace this with your actual image processing logic
-            # For now, let's just print the file name
-            # (Do not use os.listdir on a file path)
+           
         else:
             print(f"Skipping non-file item: {itemPath}")
 else:

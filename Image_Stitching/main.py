@@ -11,7 +11,7 @@ if not os.path.isdir(mainFolder):
     print(f"The path {mainFolder} is not a directory or does not exist.")
     exit(1)
 
-# Get the list of files in the main folder
+
 myFiles = os.listdir(mainFolder)
 
 images = []
@@ -33,9 +33,9 @@ if len(images) > 1:
     (status, result) = stitcher.stitch(images)
     if status == cv2.Stitcher_OK:
         print("Panorama generated")
-        # Save the stitched image
+        
         cv2.imwrite('stitched_image.jpg', result)
-        # Display the stitched image
+        
         cv2.imshow('Stitched Image', result)
         cv2.waitKey(0)
         cv2.destroyAllWindows()

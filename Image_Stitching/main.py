@@ -45,3 +45,8 @@ for folder in myFolders:
 
     stitcher = cv2.Stitcher.create()
     (status, result) = stitcher.stitch(images)
+    if(status == cv2.STITCHER_OK):
+        print("paranoma generated")
+
+    else:
+        print("unseccessful generation")

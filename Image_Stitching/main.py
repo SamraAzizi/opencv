@@ -3,10 +3,10 @@ import os
 
 
 
-# Define the main folder path
+
 mainFolder = 'Image_Stitching/Images'
 
-# Check if the main folder exists and is a directory
+
 if not os.path.isdir(mainFolder):
     print(f"The path {mainFolder} is not a directory or does not exist.")
     exit(1)

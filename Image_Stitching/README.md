@@ -32,13 +32,4 @@ This Python script uses OpenCV to stitch multiple images together into a panoram
      ```
 
 2. **Running the Script**:
-   - Ensure your terminal or command prompt is open in the directory containing the script.
-   - Run the script using the following command:
-   
-     ```bash
-     python main.py
-     ```
-
-3. **Expected Output**:
-   - The script will read the images from the `Images` folder, resize them, and attempt to stitch them into a single panoramic image.
-   - I
+   - 

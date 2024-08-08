@@ -40,17 +40,7 @@ This Python script uses OpenCV to stitch multiple images together into a panoram
      ```
 
 3. **Expected Output**:
-   - The script will read the images from the `Images` folder, resize them, and attempt to stitch them into a single panoramic image.
-   - If successful, the panorama will be saved as `stitched_image.jpg` in the same directory as the script.
-   - The stitched image will also be displayed in a window. Press any key to close the window.
-
-## Error Handling
-
-The script provides detailed feedback if stitching fails:
-
-- **"Need more images to stitch"**: Not enough images were provided to create a panorama.
-- **"Homography estimation failed"**: The algorithm couldn't determine the correct alignment between images.
-- **"Camera parameters adjustment failed"**: Issues with adjusting camera parameters during stitching.
+   - The scristment failed"**: Issues with adjusting camera parameters during stitching.
 
 ## Notes
 

@@ -20,4 +20,13 @@ alarm_mode = False
 alarm_counter = 0
 
 def beep_alarm():
-    
+    global alarm
+
+    for _ in range(5):
+        if not alarm_mode:
+            break
+
+        print("ALARM")
+        winsound.Beep(2500, 1000)
+
+    alarm = False

@@ -39,3 +39,5 @@ while True:
         frame_bw = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         frame_bw = cv2.GaussianBlur(frame_bw, (5,5), 0)
 
+        difference = cv2.absdiff(frame_bw, start_frame)
+        threshold = cv2.treshold(difference, 25, 255, cv2.THRESHOLD_BINARY)[1]

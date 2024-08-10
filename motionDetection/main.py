@@ -43,13 +43,7 @@ while True:
         frame_bw = cv2.GaussianBlur(frame_bw, (5,5), 0)
 
         difference = cv2.absdiff(frame_bw, start_frame)
-        threshold = cv2.threshold(difference, 25, 255, cv2.THRESH_BINARY)[1]
-
-        start_frame = frame_bw
-
-        if threshold.sum() > 300:
-            alarm_counter += 1
-
+        threshold = cv2
         else:
             if alarm_counter > 0:
                 alarm_counter -= 1

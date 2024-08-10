@@ -53,3 +53,11 @@ while True:
         else:
             if alarm_counter > 0:
                 alarm_counter -= 1
+
+        cv2.imshow("cam", threshold)
+    else:
+        cv2.imshow("cam", frame)
+
+    if alarm_counter > 20:
+        if not alarm:
+            alarm = True

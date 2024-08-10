@@ -22,6 +22,9 @@ alarm_counter = 0
 def beep_alarm():
     global alarm
 
+
+
+
     for _ in range(5):
         if not alarm_mode:
             break
@@ -41,3 +44,12 @@ while True:
 
         difference = cv2.absdiff(frame_bw, start_frame)
         threshold = cv2.treshold(difference, 25, 255, cv2.THRESHOLD_BINARY)[1]
+
+        start_frame = frame_bw
+
+        if threshold.sum() > 300:
+            alarm_counter += 1
+
+        else:
+            if alarm_counter > 0:
+                alarm_counter -= 1

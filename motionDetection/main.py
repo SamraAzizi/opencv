@@ -61,3 +61,21 @@ while True:
     if alarm_counter > 20:
         if not alarm:
             alarm = True
+            threading.Thread(target = beep_alarm).start()
+
+    
+    key_pressed = cv2.waitKey(30)
+    if key_pressed == ord("s"):
+        alarm_mode = not alarm_mode
+        alarm_counter = 0
+
+    if key_pressed == ord("q"):
+        alarm_mode = False
+        break
+
+
+
+cap.release()
+
+
+

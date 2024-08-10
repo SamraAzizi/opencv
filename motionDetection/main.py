@@ -36,4 +36,6 @@ while True:
     _, frame = cap.read()
     frame = imutils.resize(frame, width = 500)
     if alarm_mode:
-        
+        frame_bw = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        frame_bw = cv2.GaussianBlur(frame_bw, (5,5), 0)
+

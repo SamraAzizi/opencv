@@ -17,14 +17,6 @@ This project is a simple motion detection alarm system using OpenCV and Python. 
 - winsound (Windows-only)
 - threading (built-in)
 
-## Installation
-
-1. Ensure you have Python installed. You can download it from [here](https://www.python.org/downloads/).
-
-2. Install the required Python packages using pip:
-   ```bash
-   pip install opencv-python imutils
-
 
 How to Use
 ----------

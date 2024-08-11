@@ -30,15 +30,7 @@ How to Use
 
 4. Toggle Alarm Mode: Press the 's' key to start or stop the alarm mode.
 
-   - When alarm mode is on, the program will start detecting motion.
-   - If significant motion is detected, an alarm sound will be triggered.
-
-5. Exit the Program: Press the 'q' key to stop the program and close the webcam.
-
-
-Code Explanation
-----------------
-
+   - When alarm mode is on, the program wi
 Frame Capturing:
 
 - The code captures video frames using cv2.VideoCapture.

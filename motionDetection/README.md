@@ -24,17 +24,7 @@ How to Use
 1. Clone this repository or copy the code to your local machine.
 
 2. Run the Python script:
-   python motion_detection_alarm.py
-
-3. The webcam will start capturing video. You will see the video feed in a window.
-
-4. Toggle Alarm Mode: Press the 's' key to start or stop the alarm mode.
-
-   - When alarm mode is on, the program wi
-Frame Capturing:
-
-- The code captures video frames using cv2.VideoCapture.
-- It processes the frames by resizing, converting to grayscale, and applying Gaussian blur.
+   python motion_detection_alarand applying Gaussian blur.
 
 Motion Detection:
 

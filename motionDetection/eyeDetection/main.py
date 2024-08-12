@@ -14,7 +14,8 @@ while True:
     faces = detector(gray)
 
     for face in faces:
-        print(face)
+        x, y = face.left(), face.top()
+        x1, y1 = face.right(), face.bottom()
     cv2.imshow("frame", frame)
 
     key = cv2.waitKey(1)

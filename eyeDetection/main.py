@@ -20,6 +20,9 @@ while True:
 
         landmarks = predictor(gray, face)
         left_point = (landmarks.part(36).x, landmarks.part(36).y)
+        right_point = (landmarks.part(39).x, landmarks.part(39).y)
+
+        horizontal_line = cv2.line(frame, left_point, right_point, (0, 255, 0), 2)
        # x = landmarks.part(36).x
        # y = landmarks.part(36).y
        # cv2.circle(frame, (x,y), 3, (0,0,255), 2)

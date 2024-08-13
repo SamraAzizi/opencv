@@ -5,7 +5,7 @@ import dlib
 cap = cv2.VideoCapture(0)
 
 detector = dlib.get_frontal_face_detector()
-
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 while True:
     _, frame = cap.read()
 
@@ -16,6 +16,9 @@ while True:
     for face in faces:
         x, y = face.left(), face.top()
         x1, y1 = face.right(), face.bottom()
+        cv2.rectangle(frame, (x,y), (x1, y1), (0, 255, 0), 2)
+
+        landmarks = predictor(gray, face)
     cv2.imshow("frame", frame)
 
     key = cv2.waitKey(1)

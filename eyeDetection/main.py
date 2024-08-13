@@ -16,12 +16,14 @@ while True:
     for face in faces:
         x, y = face.left(), face.top()
         x1, y1 = face.right(), face.bottom()
-        cv2.rectangle(frame, (x,y), (x1, y1), (0, 255, 0), 2)
+       # cv2.rectangle(frame, (x,y), (x1, y1), (0, 255, 0), 2)
 
         landmarks = predictor(gray, face)
-        x = landmarks.part(36).x
-        y = landmarks.part(36).y
-        cv2.circle(frame, (x,y), 3, (0,0,255), 2)
+        left_point = (landmarks.part(36).x, landmarks.part(36).y)
+       # x = landmarks.part(36).x
+       # y = landmarks.part(36).y
+       # cv2.circle(frame, (x,y), 3, (0,0,255), 2)
+
     cv2.imshow("frame", frame)
 
     key = cv2.waitKey(1)

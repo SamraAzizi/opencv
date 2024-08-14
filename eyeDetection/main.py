@@ -29,6 +29,7 @@ while True:
         center_bottom = midpoint(landmarks.part(41), landmarks.part(40))
 
         horizontal_line = cv2.line(frame, left_point, right_point, (0, 255, 0), 2)
+        ver_line = cv2.line(frame,center_top, center_bottom, (0,255, 0) ,2)
        # x = landmarks.part(36).x
        # y = landmarks.part(36).y
        # cv2.circle(frame, (x,y), 3, (0,0,255), 2)

@@ -20,12 +20,7 @@ while True:
         x, y = face.left(), face.top()
         x1, y1 = face.right(), face.bottom()
        # cv2.rectangle(frame, (x,y), (x1, y1), (0, 255, 0), 2)
-
-        landmarks = predictor(gray, face)
-        left_point = (landmarks.part(36).x, landmarks.part(36).y)
-        right_point = (landmarks.part(39).x, landmarks.part(39).y)
-
-        center_top = midpoint(landmarks.part(37), landmarks.part(38))
+art(37), landmarks.part(38))
         center_bottom = midpoint(landmarks.part(41), landmarks.part(40))
 
         horizontal_line = cv2.line(frame, left_point, right_point, (0, 255, 0), 2)

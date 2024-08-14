@@ -5,9 +5,10 @@ import dlib
 cap = cv2.VideoCapture(0)
 
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor(r"C:\Users\CPCM\OneDrive\Desktop\opencv\eyeDetection\shape_predictor_68_face_landmarks.dat")
+
 def midpoint(p1, p2):
-    return((p1.x + p2.x)/2), ((p1.y + p2.y)/2)
+    return (int((p1.x + p2.x) / 2), int((p1.y + p2.y) / 2))
 
 while True:
     _, frame = cap.read()

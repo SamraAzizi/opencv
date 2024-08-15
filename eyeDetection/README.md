@@ -14,21 +14,6 @@ Before running this code, ensure you have the following dependencies installed:
 You can install these dependencies using pip:
 
 ```bash
-pip install opencv-python numpy dlib
-```
-
-# Setup
-
-1. **Dlib's Shape Predictor**: This code requires the `shape_predictor_68_face_landmarks.dat` file, 
-   which contains the trained model to detect facial landmarks. 
-   You can download it from http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2 and extract the file.
-
-2. **Update the Path**: Ensure the path to the `shape_predictor_68_face_landmarks.dat` file in the code is correctly set:
-   
-   predictor = dlib.shape_predictor(r"C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\eyeDetection\\shape_predictor_68_face_landmarks.dat")
-
-# How It Works
-
 - The code starts by capturing video from the default webcam.
 - It then converts each frame to grayscale for easier processing.
 - Using Dlib's face detector, it detects any faces in the frame.

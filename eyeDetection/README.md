@@ -8,10 +8,4 @@ Before running this code, ensure you have the following dependencies installed:
 
 - Python 3.x
 - OpenCV
-- NumPy
-- Dlib
-
-You can install these dependencies using pip:
-
-```bash
-pip install opencv-python numpy dlib
+- 

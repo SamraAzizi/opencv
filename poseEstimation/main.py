@@ -2,6 +2,9 @@ import opencv
 import mediapipe as mp
 import time
 
+mpPose = mp.solutions.pose
+
+pose = mpPose.Pose()
 
 cap = cv2.VideoCapture("")
 prevTime = 0

@@ -27,7 +27,10 @@ while True:
         mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
         for id, lm in enumerate(results.pose_landmarks.landmark):
             h, w, c = img.shape
-            
+
+            cx, cy = int(lm.x *w ), int( lm.y* h)
+            cv2.circle(img, (cx, cy), 10, (255, 0, 0), cv2.FILLED)
+
 
 
     currentTime = time.time()

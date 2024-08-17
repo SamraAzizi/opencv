@@ -1,13 +1,14 @@
 
 import mediapipe as mp
 import time
-import opencv
+import cv2
 
+mpDraw = mp.solutions.drawing_utils
 mpPose = mp.solutions.pose
 
 pose = mpPose.Pose()
 
-cap = cv2.VideoCapture("")
+cap = cv2.VideoCapture("123.mp4")
 prevTime = 0
 
 while True:
@@ -15,6 +16,11 @@ while True:
 
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2GB)
     results = pose.process(imgRGB)
+    print(results.pose_landmarks)
+    if results.pose_landmarks:
+        mpDraw.draw_landmarks()
+
+     
     
 
     currentTime = time.time()

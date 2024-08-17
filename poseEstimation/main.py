@@ -1,6 +1,7 @@
-import opencv
+
 import mediapipe as mp
 import time
+import opencv
 
 mpPose = mp.solutions.pose
 
@@ -11,6 +12,9 @@ prevTime = 0
 
 while True:
     success, img = cap.read()
+
+    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2GB)
+    results = pose.process(imgRGB)
     
 
     currentTime = time.time()

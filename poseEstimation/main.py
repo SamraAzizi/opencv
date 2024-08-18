@@ -9,6 +9,10 @@ class poseDetector():
                  , detectionCon = 0.5, trackCon = 0.5):
         
         self.mode = mode
+        self.upperBody = upperBody
+        self.smooth = smooth
+        self.detectionCon = detectionCon
+        self.trackCon = trackCon
 
 mpDraw = mp.solutions.drawing_utils
 mpPose = mp.solutions.pose

@@ -5,8 +5,11 @@ import cv2
 
 
 class poseDetector():
-    def __init__(self):
+    def __init__(self, mode = False, upperBody = False, smooth = True
+                 , detectionCon = 0.5, trackCon = 0.5):
         
+        self.mode = mode
+
 mpDraw = mp.solutions.drawing_utils
 mpPose = mp.solutions.pose
 

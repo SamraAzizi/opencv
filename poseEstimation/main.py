@@ -14,10 +14,10 @@ class poseDetector():
         self.detectionCon = detectionCon
         self.trackCon = trackCon
 
-mpDraw = mp.solutions.drawing_utils
-mpPose = mp.solutions.pose
+        self.mpDraw = mp.solutions.drawing_utils
+        self.mpPose = mp.solutions.pose
 
-pose = mpPose.Pose()
+        self.pose = self.mpPose.Pose(self.mode)
 
 
 

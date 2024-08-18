@@ -17,9 +17,10 @@ class poseDetector():
         self.mpDraw = mp.solutions.drawing_utils
         self.mpPose = mp.solutions.pose
 
-        self.pose = self.mpPose.Pose(self.mode)
+        self.pose = self.mpPose.Pose(self.mode, self.upperBody, self.smooth
+                                     , self.detectionCon, self.trackCon)
 
-
+    def findPose(self, img, draw = True):
 
     if not success:
         print("Failed to read frame. Exiting...")

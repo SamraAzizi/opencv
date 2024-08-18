@@ -8,13 +8,7 @@ mpPose = mp.solutions.pose
 
 pose = mpPose.Pose()
 
-cap = cv2.VideoCapture(r"C:\Users\CPCM\OneDrive\Desktop\opencv\poseEstimation\123.mp4")
 
-prevTime = 0
-
-while True:
-
-    success, img = cap.read()
 
     if not success:
         print("Failed to read frame. Exiting...")
@@ -32,6 +26,17 @@ while True:
             cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
 
 
+
+
+
+def main():
+    cap = cv2.VideoCapture(r"C:\Users\CPCM\OneDrive\Desktop\opencv\poseEstimation\123.mp4")
+
+prevTime = 0
+
+while True:
+
+    success, img = cap.read()
 
     currentTime = time.time()
     fps = 1/(currentTime - prevTime)

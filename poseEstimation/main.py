@@ -66,13 +66,7 @@ def main():
             cv2.circle(img, (lmList[1][1], lmList[1][2]), 5, (255, 0, 0), cv2.FILLED)
 
         currentTime = time.time()
-        fps = 1/(currentTime - prevTime)
-        prevTime = currentTime
-
-        cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
-
-        cv2.imshow("Image", img)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        fps = 1/(curF == ord('q'):
             break
 
     cap.release()

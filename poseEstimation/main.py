@@ -32,7 +32,7 @@ class poseDetector():
             if draw:
                 self.mpDraw.draw_landmarks(img, results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
                 
-        
+        return img
         # for id, lm in enumerate(results.pose_landmarks.landmark):
         #     h, w, c = img.shape
 
@@ -52,6 +52,7 @@ def main():
 while True:
 
     success, img = cap.read()
+    img = detector.findPose(img)
 
     currentTime = time.time()
     fps = 1/(currentTime - prevTime)

@@ -49,7 +49,7 @@ class poseDetector():
                 if draw: 
                     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
 
-
+        return lmList
 
 
 
@@ -63,7 +63,8 @@ while True:
 
     success, img = cap.read()
     img = detector.findPose(img)
-    lmList = detector.findPosition(img)
+    lmList = detector.findPosition(img, draw=False)
+    cv2.circle(img, (lmList[1], lmList[2]), 5, (255, 0, 0), cv2.FILLED)
 
     currentTime = time.time()
     fps = 1/(currentTime - prevTime)

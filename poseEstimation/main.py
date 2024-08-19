@@ -24,20 +24,25 @@ class poseDetector():
 
     
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        results = self.pose.process(imgRGB)
+        self.results = self.pose.process(imgRGB)
         
         
 
-        if results.pose_landmarks:
+        if self.results.pose_landmarks:
             if draw:
-                self.mpDraw.draw_landmarks(img, results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
+                self.mpDraw.draw_landmarks(img, self.results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
                 
         return img
-        # for id, lm in enumerate(results.pose_landmarks.landmark):
-        #     h, w, c = img.shape
+    
 
-        #     cx, cy = int(lm.x *w ), int( lm.y* h)
-        #     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
+
+    def getPosition(self, img, draw = True):
+
+        for id, lm in enumerate(self.results.pose_landmarks.landmark):
+            h, w, c = img.shape
+
+            cx, cy = int(lm.x *w ), int( lm.y* h)
+            cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
 
 
 

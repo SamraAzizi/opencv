@@ -24,12 +24,14 @@ class poseDetector():
 
     
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        results = pose.process(imgRGB)
-        print(results.pose_landmarks)
+        results = self.pose.process(imgRGB)
+        
+        
 
         if results.pose_landmarks:
-            mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
-            
+            if draw:
+                self.mpDraw.draw_landmarks(img, results.pose_landmarks, self.mpPose.POSE_CONNECTIONS)
+                
         
         # for id, lm in enumerate(results.pose_landmarks.landmark):
         #     h, w, c = img.shape
@@ -44,7 +46,8 @@ class poseDetector():
 def main():
     cap = cv2.VideoCapture(r"C:\Users\CPCM\OneDrive\Desktop\opencv\poseEstimation\123.mp4")
 
-prevTime = 0
+    prevTime = 0
+    detector = poseDetector()
 
 while True:
 

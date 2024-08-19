@@ -22,20 +22,20 @@ class poseDetector():
 
     def findPose(self, img, draw = True):
 
-    if not success:
-        print("Failed to read frame. Exiting...")
-        break
+    
+        imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        results = pose.process(imgRGB)
+        print(results.pose_landmarks)
 
-    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    results = pose.process(imgRGB)
-    print(results.pose_landmarks)
-    if results.pose_landmarks:
-        mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
-        for id, lm in enumerate(results.pose_landmarks.landmark):
-            h, w, c = img.shape
+        if results.pose_landmarks:
+            mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
+            
+        
+        # for id, lm in enumerate(results.pose_landmarks.landmark):
+        #     h, w, c = img.shape
 
-            cx, cy = int(lm.x *w ), int( lm.y* h)
-            cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
+        #     cx, cy = int(lm.x *w ), int( lm.y* h)
+        #     cv2.circle(img, (cx, cy), 5, (255, 0, 0), cv2.FILLED)
 
 
 

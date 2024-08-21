@@ -18,7 +18,15 @@ This file contains the simplest implementation of pose estimation using MediaPip
 ### 2. `pose_estimation_class.py`
 
 This file enhances the basic implementation by encapsulating the pose estimation logic within a class called `PoseDetector`.
-` class from the second file and uses it in a streamlined main loop.
+
+- **Features:**
+  - `PoseDetector` class for better code organization and reusability.
+  - Methods to find the pose and the positions of landmarks.
+  - Allows toggling drawing of landmarks and more control over detection parameters.
+
+### 3. `pose_estimation_main.py`
+
+This file further builds on the class-based implementation. It imports the `PoseDetector` class from the second file and uses it in a streamlined main loop.
 
 - **Features:**
   - Reuses the `PoseDetector` class for pose detection.

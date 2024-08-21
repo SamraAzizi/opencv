@@ -30,12 +30,7 @@ This file further builds on the class-based implementation. It imports the `Pose
 
 - **Features:**
   - Reuses the `PoseDetector` class for pose detection.
-  - Demonstrates how to structure a larger project by separating the main logic from the detector code.
-  - Simplifies the main loop by importing and using the detector class.
-
-## Usage Instructions
-
-1. Make sure you have Python installed.
+  - Demonstrates how to structure a
 2. Install the required libraries:
    ```bash
    pip install opencv-python mediapipe

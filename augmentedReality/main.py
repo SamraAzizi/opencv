@@ -12,6 +12,9 @@ success , imgVideo = myVid.read()
 
 hT, wT, cT = imgTarget.shape
 imgVideo = cv2.resize(imgVideo, (wT, hT))
+while Tue:
+        
+        successm imgWebcam = cap.read()
 
 
 cv2.imshow("ImageTarget", imgTarget)

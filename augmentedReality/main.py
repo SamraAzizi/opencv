@@ -5,7 +5,8 @@ import numpy as np
 cap = cv2.VideoCapture(0)
 
 # Load target image
-imgTarget = cv2.imread("cards.jpg")
+imgTarget = cv2.imread("C:/Users/CPCM/OneDrive/Desktop/opencv/augmentedReality/cards.jpg")
+
 if imgTarget is None:
     print("Error: Could not load target image.")
     exit()
@@ -13,7 +14,8 @@ if imgTarget is None:
 hT, wT, cT = imgTarget.shape
 
 # Initialize video capture for overlay video
-myVideo = cv2.VideoCapture("flower.mp4")
+myVideo = cv2.VideoCapture("C:/Users/CPCM/OneDrive/Desktop/opencv/augmentedReality/flower.mp4")
+
 if not myVideo.isOpened():
     print("Error: Could not open video file.")
     exit()

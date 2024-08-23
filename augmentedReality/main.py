@@ -23,6 +23,11 @@ while True:
         
         
         success, imgWebcam = cap.read()
+        kp2, des2 = orb.detectAndCompute(imgWebcam, None)
+        imgWebcam = cv2.drawKeypoints(imgWebcam, kp2, None)
+        
+
+
 
 
         cv2.imshow("ImageTarget", imgTarget)

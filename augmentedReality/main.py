@@ -75,6 +75,7 @@ while True:
     
 
     # Display images
+    cv2.imshow("ImageFeatures", imgFeatures)
     cv2.imshow("Image Target Keypoints", imgTargetKeypoints)
     cv2.imshow("Video Frame Resized", imgVideoResized)
     cv2.imshow("Webcam Keypoints", imgWebcamKeypoints)

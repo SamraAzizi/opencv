@@ -82,14 +82,4 @@ while True:
     else:
         print("Warning: No descriptors found in the webcam frame.")
 
-    cv2.imshow("Video Frame Resized", imgVideoResized)
-    cv2.imshow("Image Target Keypoints", imgTargetKeypoints)
-
-    # Exit on pressing 'q'
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-# Release resources
-cap.release()
-myVideo.release()
-cv2.destroyAllWindows()
+    cv2.imshow

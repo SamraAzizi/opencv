@@ -57,28 +57,33 @@ while True:
     # Compute keypoints and descriptors for the resized webcam frame
     kp2, des2 = orb.detectAndCompute(imgWebcamResized, None)
 
-    # Draw keypoints on the resized webcam frame for visualization
-    imgWebcamKeypoints = cv2.drawKeypoints(imgWebcamResized, kp2, None)
+    if des2 is not None:
+        # Draw keypoints on the resized webcam frame for visualization
+        imgWebcamKeypoints = cv2.drawKeypoints(imgWebcamResized, kp2, None)
 
-    bf = cv2.BFMatcher()
-    matches = bf.KnnMatch(des1, des2, k=2)
-    good = []
-    for m, n in matches:
-        if m.distance < 0.75 * n .distance:
-            good.append(m)
+        # Perform matching between descriptors
+        bf = cv2.BFMatcher()
+        matches = bf.knnMatch(des1, des2, k=2)
+        
+        # Apply ratio test to filter good matches
+        good = []
+        for m, n in matches:
+            if m.distance < 0.75 * n.distance:
+                good.append(m)
 
-    print(len(good))
+        print(f"Number of good matches: {len(good)}")
 
-    imgFeatures = cv2.drawMatches(imgTarget, kp1, imgWebcam, kp2, good, None, flags= 2)
+        # Draw matches on the images
+        imgFeatures = cv2.drawMatches(imgTarget, kp1, imgWebcamResized, kp2, good, None, flags=cv2.DrawMatchesFlags_NOT_DRAW_SINGLE_POINTS)
 
+        # Display images
+        cv2.imshow("Image Features", imgFeatures)
+        cv2.imshow("Webcam Keypoints", imgWebcamKeypoints)
+    else:
+        print("Warning: No descriptors found in the webcam frame.")
 
-    
-
-    # Display images
-    cv2.imshow("ImageFeatures", imgFeatures)
-    cv2.imshow("Image Target Keypoints", imgTargetKeypoints)
     cv2.imshow("Video Frame Resized", imgVideoResized)
-    cv2.imshow("Webcam Keypoints", imgWebcamKeypoints)
+    cv2.imshow("Image Target Keypoints", imgTargetKeypoints)
 
     # Exit on pressing 'q'
     if cv2.waitKey(1) & 0xFF == ord('q'):

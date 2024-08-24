@@ -60,6 +60,11 @@ while True:
     # Draw keypoints on the resized webcam frame for visualization
     imgWebcamKeypoints = cv2.drawKeypoints(imgWebcamResized, kp2, None)
 
+    bf = cv2.BFMatcher()
+    matches = bf.KnnMatch(des1, des2)
+
+    
+
     # Display images
     cv2.imshow("Image Target Keypoints", imgTargetKeypoints)
     cv2.imshow("Video Frame Resized", imgVideoResized)

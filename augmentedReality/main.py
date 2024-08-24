@@ -67,6 +67,10 @@ while True:
         if m.distance < 0.75 * n .distance:
             good.append(m)
 
+    print(len(good))
+
+    imgFeatures = cv2.drawMatches(imgTarget, kp1, imgWebcam, kp2, good, None, flags= 2)
+
 
     
 

@@ -61,7 +61,12 @@ while True:
     imgWebcamKeypoints = cv2.drawKeypoints(imgWebcamResized, kp2, None)
 
     bf = cv2.BFMatcher()
-    matches = bf.KnnMatch(des1, des2)
+    matches = bf.KnnMatch(des1, des2, k=2)
+    good = []
+    for m, n in matches:
+        if m.distance < 0.75 * n .distance:
+            good.append(m)
+
 
     
 

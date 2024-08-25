@@ -1,4 +1,13 @@
+# Augmented Reality using OpenCV
 
+This project demonstrates an augmented reality application using OpenCV. It uses a webcam to capture video frames, detects keypoints in the frames, and overlays a video on top of a target image.
+
+## Requirements
+
+* OpenCV 4.x
+* NumPy
+* A webcam
+* A video file (e.g. "flower.mp4")
 * A target image (e.g. "cards.jpg")
 
 ## Usage

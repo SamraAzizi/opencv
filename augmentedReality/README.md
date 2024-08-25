@@ -38,4 +38,3 @@ The code uses the following steps to achieve augmented reality:
 9. Draw matches on the images.
 10. Display the images.
 
-Note: This code is for demonstration purposes only and may require modifications to work with your specific use case.

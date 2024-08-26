@@ -12,7 +12,15 @@ if not cap.isOpened():
     exit()
 
 # Load and resize the target image
-imgTarget = cv2.imread("C:/Users/CPCM/OneDrive/Desktop/opencv/augmentedReality/cards.jpg")
+imgTarget = cv2.imread("C:/Users/CPCM/OneDrive/Desktop/opencv/augmentedReaimport numpy as np
+
+# Set target dimensions for resizing
+target_width = 640
+target_height = 480
+
+# Initialize webcam capture
+cap = cv2.VideoCapture(0)
+if not cap.isOpelity/cards.jpg")
 if imgTarget is None:
     print("Error: Could not load target image.")
     exit()

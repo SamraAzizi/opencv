@@ -10,3 +10,5 @@ plt.imshow(cv2.cvtColor(gray, cv2.COLOR_BGR2RGB))
 
 
 bfilter = cv2.bilateralFilter(gray, 11, 17, 17)
+edge = cv2.Canny(bfilter, 30, 200)
+plt.imshow(cv2.cvtColor(edge, cv2.COLOR_BGR2RGB))

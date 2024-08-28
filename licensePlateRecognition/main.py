@@ -21,3 +21,6 @@ contours = sorted(contours, key=cv2.contourArea, reverse= True)[:10]
 location = None
 for contour in contours:
     approx = cv2.approxPolyOP(contour, 10, True)
+    if len(approx) == 4:
+        location = approx
+        break

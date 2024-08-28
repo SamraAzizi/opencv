@@ -18,5 +18,9 @@ keyPoints = cv2.findContours(edge.copy(), cv2.RETR_TREE, cv2.CHAIN_APROX_SIMPLE)
 contours = imutils.grab_contours(keyPoints)
 contours = sorted(contours, key=cv2.contourArea, reverse= True)[:10]
 
-locatin = approx
+location = None
+for contour in contours:
+    approx = cv2.approxPolyOP(contour, 10, True)
+    if len(approx) == 4:
+        location = approx
         break

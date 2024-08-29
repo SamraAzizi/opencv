@@ -37,3 +37,5 @@ plt.imshow(cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
 (x1,y1) = (np.min(x), np.min(y))
 (x2, y2) = (np.max(x), np.max(y))
 cropped_image = gray[x1:x2+1, y1:y2+1]
+
+plt.imshow(cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB))

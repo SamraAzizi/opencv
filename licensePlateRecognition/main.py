@@ -2,6 +2,7 @@ import cv2
 from matplotlib import pyplot as plt
 import imutils
 import easyocr
+import numpy as np
 
 
 img = cv2.imread('123.jpg')
@@ -24,3 +25,7 @@ for contour in contours:
     if len(approx) == 4:
         location = approx
         break
+
+
+mask = np.zeros(gray.shape, np.uint8)
+new_image = cv2.drawContours(mask, [location], 0,255,-1)

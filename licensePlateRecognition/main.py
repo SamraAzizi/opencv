@@ -39,3 +39,6 @@ plt.imshow(cv2.cvtColor(new_image, cv2.COLOR_BGR2RGB))
 cropped_image = gray[x1:x2+1, y1:y2+1]
 
 plt.imshow(cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB))
+
+reader = easyocr.Reader(['en'])
+result = reader.readtext(cropped_image)

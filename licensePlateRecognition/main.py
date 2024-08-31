@@ -5,27 +5,7 @@ import pytesseract
 import numpy as np
 
 # Load the image
-img = cv2.imread('C:/Users/CPCM/OneDrive/Desktop/opencv/licensePlateRecognition/123.jpg')
-
-# Check if the image is loaded successfully
-if img is None:
-    print("Error: Image not found. Check the file path.")
-    exit()
-
-# Convert the image to grayscale
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-
-# Display the grayscale image
-plt.imshow(cv2.cvtColor(gray, cv2.COLOR_BGR2RGB))
-plt.title('Grayscale Image')
-plt.axis('off')
-plt.show()
-
-# Apply bilateral filtering to the grayscale image
-bfilter = cv2.bilateralFilter(gray, 11, 17, 17)
-edge = cv2.Canny(bfilter, 30, 200)
-
-# Display the edges detected
+img = cv2.imre
 plt.imshow(edge, cmap='gray')
 plt.title('Edge Detection')
 plt.axis('off')

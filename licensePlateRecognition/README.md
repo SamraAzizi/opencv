@@ -23,7 +23,7 @@ This project demonstrates a license plate recognition application using OpenCV a
 3. Download the Tesseract-OCR engine from the official GitHub repository: https://github.com/tesseract-ocr/tesseract
 4. Add the path to the Tesseract-OCR engine to your system's PATH environment variable.
 5. Replace the image path in the code with the path to your own image.
-6. Run the code by executing `python license_plate_recognition.py`.
+6. Run the code by executing `main.py`.
 7. The application will display several windows:
 	* "Grayscale Image": shows the grayscale image.
 	* "Edge Detection": shows the edges detected in the image.
@@ -45,10 +45,3 @@ The code uses the following steps to achieve license plate recognition:
 8. Draw the text on the original image.
 9. Display the images.
 
-### Importing Libraries
-```python
-import cv2
-from matplotlib import pyplot as plt
-import imutils
-import pytesseract
-import numpy as np

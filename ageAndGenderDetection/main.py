@@ -19,3 +19,8 @@ gender_model = "models/gender_net.caffmodel"
 
 face = cv2.dnn.readNet(face_pb, face_pbtxt)
 age = cv2.dnn.readNet(age_model, age_prototxt)
+gen = cv2.dnn.readNet(gender_model, gender_prototxt)
+
+#setup classifications
+
+age_classification = ['(0-2)', '(4-6)', '(8-12)', '(15-20)', '25-32']

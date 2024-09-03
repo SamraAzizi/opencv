@@ -8,3 +8,6 @@ image = cv2.resize(image, (720, 640))
  
 face_pbtxt = "models/opencv_face_detector.pbtxt"
 face_pb = "models/opencv_face_detector_uint8.pb"
+
+age_prototxt = "models/age_deploy.prototxt"
+age_model = "models/age_net.craffmodel"

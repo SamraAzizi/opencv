@@ -11,3 +11,6 @@ face_pb = "models/opencv_face_detector_uint8.pb"
 
 age_prototxt = "models/age_deploy.prototxt"
 age_model = "models/age_net.craffmodel"
+
+gender_prototxt = "models/gender_deploy.prototxt"
+gender_model = "models/gender_net.caffmodel"

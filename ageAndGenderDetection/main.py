@@ -25,3 +25,13 @@ gen = cv2.dnn.readNet(gender_model, gender_prototxt)
 
 age_classifications = ['(0-2)', '(4-6)', '(8-12)', '(15-20)', '25-32','(38-43)','(48-53)','60-100']
 gender_classifications = ['Male','Female'] 
+
+#copy image
+
+img_cp = image.copy()
+
+#get images dimension and blob
+
+img_h = img_cp.shape[0]
+img_w = img_cp.shape[1]
+

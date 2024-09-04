@@ -14,6 +14,7 @@ age_model = "models/age_net.craffmodel"
 
 gender_prototxt = "models/gender_deploy.prototxt"
 gender_model = "models/gender_net.caffmodel"
+MODEL_MEAN_VALUES = [104, 117, 123]
 
 #load models
 
@@ -34,4 +35,7 @@ img_cp = image.copy()
 
 img_h = img_cp.shape[0]
 img_w = img_cp.shape[1]
+blob = cv2.dnn.blobFromImage(img_cp, 1, 0, (300, 300),MODEL_MEAN_VALUES, True, False)
+
+
 

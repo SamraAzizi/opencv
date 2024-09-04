@@ -38,4 +38,17 @@ img_w = img_cp.shape[1]
 blob = cv2.dnn.blobFromImage(img_cp, 1, 0, (300, 300),MODEL_MEAN_VALUES, True, False)
 
 
+face.setInput(blob)
+detected_faces = face.forward()
 
+face_bounds =  []
+
+#draw rectangle over face
+
+for i in range(detected_faces.shape[2]):
+    confidence = detected_faces[0,0,i,2]
+    if (confidence > 0.99):
+        x1 = detected_faces[0,0,i,3] * img_w
+        x2 = detected_faces[0,0,i,4] * img_w
+         
+    

@@ -50,5 +50,7 @@ for i in range(detected_faces.shape[2]):
     if (confidence > 0.99):
         x1 = detected_faces[0,0,i,3] * img_w
         x2 = detected_faces[0,0,i,4] * img_w
+        y1 = detected_faces[0,0,i,5] * img_h
+        y2 = detected_faces[0,0,i,6] * img_h
          
     

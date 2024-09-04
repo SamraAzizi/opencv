@@ -52,5 +52,8 @@ for i in range(detected_faces.shape[2]):
         x2 = detected_faces[0,0,i,4] * img_w
         y1 = detected_faces[0,0,i,5] * img_h
         y2 = detected_faces[0,0,i,6] * img_h
+
+
+        cv2.rectangle(img_cp, (x1, x2), (y1, y2), (0,255,0), int(round(img_h/150)), 8,)
          
     

@@ -48,10 +48,10 @@ face_bounds =  []
 for i in range(detected_faces.shape[2]):
     confidence = detected_faces[0,0,i,2]
     if (confidence > 0.99):
-        x1 = detected_faces[0,0,i,3] * img_w
-        x2 = detected_faces[0,0,i,4] * img_w
-        y1 = detected_faces[0,0,i,5] * img_h
-        y2 = detected_faces[0,0,i,6] * img_h
+        x1 = int(detected_faces[0,0,i,3] * img_w)
+        x2 = int(detected_faces[0,0,i,4] * img_w)
+        y1 = int(detected_faces[0,0,i,5] * img_h)
+        y2 = int(detected_faces[0,0,i,6] * img_h)
 
 
         cv2.rectangle(img_cp, (x1, x2), (y1, y2), (0,255,0), int(round(img_h/150)), 8,)

@@ -52,6 +52,7 @@ for i in range(detected_faces.shape[2]):
 
 for face_bound in face_bounds:
     try:
+        face = img_cp[max(0, face_bound[1] - 15): min(face_bound[30] + 15))]
 
     except Exception as e:
         print(e)

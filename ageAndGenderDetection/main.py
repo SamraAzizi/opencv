@@ -36,6 +36,8 @@ blob = cv2.dnn.blobFromImage(img_cp, 1.0, (300, 300), MODEL_MEAN_VALUES, swapRB=
 face.setInput(blob)
 detected_faces = face.forward()
 
+face_bounds = []
+
 # Draw rectangles over detected faces
 for i in range(detected_faces.shape[2]):
     confidence = detected_faces[0, 0, i, 2]
@@ -46,6 +48,17 @@ for i in range(detected_faces.shape[2]):
         y2 = int(detected_faces[0, 0, i, 6] * img_h)
 
         cv2.rectangle(img_cp, (x1, y1), (x2, y2), (0, 255, 0), int(round(img_h / 150)), 8)
+        face_bounds.append([x1, y1, x2, y2])
+
+for face_bound in face_bounds:
+    try:
+
+    except Exception as e:
+        print(e)
+        continue
+
+
+
 
 # Display the result
 cv2.imshow("result", img_cp)

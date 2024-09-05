@@ -56,7 +56,10 @@ for face_bound in face_bounds:
                       max(0, face_bound[0] - 15) : min(face_bound[2] + 15, img_cp.shape[1]-1)]
         
 
-        blob = cv2.dnn.blobFromImage(face, 1.0, (227, 277), )
+        blob = cv2.dnn.blobFromImage(face, 1.0, (227, 277),MODEL_MEAN_VALUES, True )
+
+        gen.setInput(blob)
+        genderPredict = gen.forward()
 
     except Exception as e:
         print(e)

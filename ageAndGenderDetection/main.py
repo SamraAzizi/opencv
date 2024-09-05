@@ -61,6 +61,8 @@ for face_bound in face_bounds:
         gen.setInput(blob)
         genderPredict = gen.forward()
 
+        gender = gender_classifications[genderPredict[0].argmax()]
+
     except Exception as e:
         print(e)
         continue

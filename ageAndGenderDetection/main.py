@@ -8,16 +8,7 @@ os.chdir('C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\ageAndGenderDetection\\mod
 image_path = r"C:\Users\CPCM\OneDrive\Desktop\opencv\ageAndGenderDetection\gh.webp"
 face_pbtxt = os.path.join(os.getcwd(), "opencv_face_detector.pbtxt")
 face_pb = os.path.join(os.getcwd(), "opencv_face_detector_uint8.pb")
-age_prototxt = os.path.join(os.getcwd(), "age_deploy.prototxt")
-age_model = os.path.join(os.getcwd(), "age_net.caffemodel")
-gender_prototxt = os.path.join(os.getcwd(), "gender_deploy.prototxt")
-gender_model = os.path.join(os.getcwd(), "gender_net.caffemodel")
-MODEL_MEAN_VALUES = [104, 117, 123]
-
-# Check if image file exists
-if not os.path.exists(image_path):
-    raise FileNotFoundError(f"Image file '{image_path}' not found. Please check the file path.")
-
+age_prototxt = os.path.
 # Load and check the image
 image = cv2.imread(image_path)
 if image is None:

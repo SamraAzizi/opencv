@@ -5,7 +5,7 @@ import os
 os.chdir('C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\ageAndGenderDetection\\models')
 
 # Define image and model paths
-image_path = r"C:\Users\CPCM\OneDrive\Desktop\opencv\ageAndGenderDetection\gh.webp"
+image_path = r"C:\Users\CPCM\OneDrive\Desktop\opencv\ageAndGenderDetection\hey.webp"
 face_pbtxt = os.path.join(os.getcwd(), "opencv_face_detector.pbtxt")
 face_pb = os.path.join(os.getcwd(), "opencv_face_detector_uint8.pb")
 age_prototxt = os.path.join(os.getcwd(), "age_deploy.prototxt")

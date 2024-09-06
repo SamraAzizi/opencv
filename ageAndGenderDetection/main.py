@@ -50,6 +50,12 @@ for i in range(detected_faces.shape[2]):
         cv2.rectangle(img_cp, (x1, y1), (x2, y2), (0, 255, 0), int(round(img_h / 150)), 8)
         face_bounds.append([x1, y1, x2, y2])
 
+if not face_bounds:
+    print("no faces were detected")
+    exit
+
+
+
 for face_bound in face_bounds:
     try:
         face = img_cp[max(0, face_bound[1] - 15): min(face_bound[30] + 15, img_cp.shape[0]-1),
@@ -67,8 +73,7 @@ for face_bound in face_bounds:
         age_predict = age.forward()
         age = age_classifications[age_predict[0].argmax()]
 
-        cv2.putText(img_cp, f'{gender}, {age}', (face_bound[0], face_bound[1] + 10))
-        
+        cv2.putText(img_cp, f'{gender}, {age}', (face_bound[0], face_bound[1] + 10), cv2.FONT_HERSHEY_COMPLEX,1, (0,0,255),4,cv2.LINE_AA)
 
     except Exception as e:
         print(e)

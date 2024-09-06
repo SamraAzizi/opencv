@@ -65,6 +65,7 @@ for face_bound in face_bounds:
 
         age.setInput(blob)
         age_predict = age.forward()
+        age = age_classifications[age_predict[0].argmax()]
         
 
     except Exception as e:

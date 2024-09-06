@@ -4,28 +4,8 @@ import os
 # Change working directory to models directory
 os.chdir('C:\\Users\\CPCM\\OneDrive\\Desktop\\opencv\\ageAndGenderDetection\\models')
 
-# Print the current working directory
-print("Current working directory:", os.getcwd())
-
-# Check if the image file exists
-image_path = r"C:\Users\CPCM\OneDrive\Desktop\opencv\ageAndGenderDetection\asd.webp"  # Adjust if the path differs
-image = cv2.imread(image_path)
-
-print(f"Does the file exist? {os.path.exists(image_path)}")
-
-if not os.path.exists(image_path):
-    print(f"Error: File '{image_path}' not found. Please check the file path.")
-    exit()
-
-# Check if the image was loaded correctly
-if image is None:
-    print(f"Error: Could not load the image from '{image_path}'. Please check the file format and integrity.")
-    exit()
-
-# Resize the image
-image = cv2.resize(image, (720, 640))
-
-# Define model paths
+# Define image and model paths
+image_path = r"C:\Users\CPCM\OneDrive\Desktop\opencv\ageAndGenderDetection\gh.webp"
 face_pbtxt = os.path.join(os.getcwd(), "opencv_face_detector.pbtxt")
 face_pb = os.path.join(os.getcwd(), "opencv_face_detector_uint8.pb")
 age_prototxt = os.path.join(os.getcwd(), "age_deploy.prototxt")
@@ -34,14 +14,22 @@ gender_prototxt = os.path.join(os.getcwd(), "gender_deploy.prototxt")
 gender_model = os.path.join(os.getcwd(), "gender_net.caffemodel")
 MODEL_MEAN_VALUES = [104, 117, 123]
 
-# Check if the model files exist
-print(f"Does the face model file exist? {os.path.exists(face_pb)}")
-print(f"Does the age model file exist? {os.path.exists(age_model)}")
-print(f"Does the gender model file exist? {os.path.exists(gender_model)}")
+# Check if image file exists
+if not os.path.exists(image_path):
+    raise FileNotFoundError(f"Image file '{image_path}' not found. Please check the file path.")
 
-if not os.path.exists(face_pb) or not os.path.exists(age_model) or not os.path.exists(gender_model):
-    print("Error: One or more model files not found. Please check the file paths.")
-    exit()
+# Load and check the image
+image = cv2.imread(image_path)
+if image is None:
+    raise ValueError(f"Could not load the image from '{image_path}'. Please check the file format and integrity.")
+
+# Resize the image
+image = cv2.resize(image, (720, 640))
+
+# Check if model files exist
+for model in [face_pb, age_model, gender_model]:
+    if not os.path.exists(model):
+        raise FileNotFoundError(f"Model file '{model}' not found. Please check the file path.")
 
 # Load models
 face_net = cv2.dnn.readNetFromTensorflow(face_pb, face_pbtxt)
@@ -78,8 +66,7 @@ for i in range(detected_faces.shape[2]):
         face_bounds.append([x1, y1, x2, y2])
 
 if not face_bounds:
-    print("No faces were detected")
-    exit()
+    raise RuntimeError("No faces were detected.")
 
 # Perform age and gender prediction
 for face_bound in face_bounds:
@@ -89,27 +76,29 @@ for face_bound in face_bounds:
 
         blob = cv2.dnn.blobFromImage(face, 1.0, (227, 227), MODEL_MEAN_VALUES, swapRB=False)
 
-
+        # Predict gender
         gender_net.setInput(blob)
-        genderPredict = gender_net.forward()
-        gender = gender_classifications[genderPredict[0].argmax()]
+        gender_predict = gender_net.forward()
+        gender = gender_classifications[gender_predict[0].argmax()]
 
+        # Predict age
         age_net.setInput(blob)
         age_predict = age_net.forward()
         age = age_classifications[age_predict[0].argmax()]
 
+        # Draw text on the image
         cv2.putText(img_cp, f'{gender}, {age}', (face_bound[0], face_bound[1] + 10), 
                     cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 4, cv2.LINE_AA)
 
-    except Exception as e:
-        print(e)
+    except Exception:
         continue
 
 # Display the result
 cv2.imshow("result", img_cp)
-while True:
-    key = cv2.waitKey(10)
-    if key == 27:  # ESC key to exit
-        break
-
-cv2.destroyAllWindows()
+try:
+    while True:
+        key = cv2.waitKey(10)
+        if key == 27:  # ESC key to exit
+            break
+finally:
+    cv2.destroyAllWindows()

@@ -1,7 +1,28 @@
 import cv2
+import os
 
-# Load and resize the image
-image = cv2.imread("123.webp")
+
+# Print the current working directory
+print("Current working directory:", os.getcwd())
+
+# Check if the file exists
+image_path = r"C:\Users\CPCM\OneDrive\Desktop\opencv\ageAndGenderDetection\123.webp"  # Adjust if the path differs
+image = cv2.imread(image_path)
+
+print(f"Does the file exist? {os.path.exists(image_path)}")
+
+if not os.path.exists(image_path):
+    print(f"Error: File '{image_path}' not found. Please check the file path.")
+    exit()
+
+image = cv2.imread(image_path)
+
+# Check if the image was loaded correctly
+if image is None:
+    print(f"Error: Could not load the image from '{image_path}'. Please check the file format and integrity.")
+    exit()
+
+# Resize the image
 image = cv2.resize(image, (720, 640))
 
 # Define models
@@ -9,10 +30,10 @@ face_pbtxt = "models/opencv_face_detector.pbtxt"
 face_pb = "models/opencv_face_detector_uint8.pb"
 
 age_prototxt = "models/age_deploy.prototxt"
-age_model = "models/age_net.caffemodel"  # Corrected extension
+age_model = "models/age_net.caffemodel"
 
 gender_prototxt = "models/gender_deploy.prototxt"
-gender_model = "models/gender_net.caffemodel"  # Corrected extension
+gender_model = "models/gender_net.caffemodel"
 
 MODEL_MEAN_VALUES = [104, 117, 123]
 
@@ -51,36 +72,30 @@ for i in range(detected_faces.shape[2]):
         face_bounds.append([x1, y1, x2, y2])
 
 if not face_bounds:
-    print("no faces were detected")
-    exit
-
-
+    print("No faces were detected")
+    exit()
 
 for face_bound in face_bounds:
     try:
-        face = img_cp[max(0, face_bound[1] - 15): min(face_bound[30] + 15, img_cp.shape[0]-1),
-                      max(0, face_bound[0] - 15) : min(face_bound[2] + 15, img_cp.shape[1]-1)]
-        
+        face = img_cp[max(0, face_bound[1] - 15): min(face_bound[3] + 15, img_cp.shape[0] - 1),
+                      max(0, face_bound[0] - 15): min(face_bound[2] + 15, img_cp.shape[1] - 1)]
 
-        blob = cv2.dnn.blobFromImage(face, 1.0, (227, 277),MODEL_MEAN_VALUES, True )
+        blob = cv2.dnn.blobFromImage(face, 1.0, (227, 227), MODEL_MEAN_VALUES, swapRB=False)
 
         gen.setInput(blob)
         genderPredict = gen.forward()
-
         gender = gender_classifications[genderPredict[0].argmax()]
 
         age.setInput(blob)
         age_predict = age.forward()
         age = age_classifications[age_predict[0].argmax()]
 
-        cv2.putText(img_cp, f'{gender}, {age}', (face_bound[0], face_bound[1] + 10), cv2.FONT_HERSHEY_COMPLEX,1, (0,0,255),4,cv2.LINE_AA)
+        cv2.putText(img_cp, f'{gender}, {age}', (face_bound[0], face_bound[1] + 10), 
+                    cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 4, cv2.LINE_AA)
 
     except Exception as e:
         print(e)
         continue
-
-
-
 
 # Display the result
 cv2.imshow("result", img_cp)

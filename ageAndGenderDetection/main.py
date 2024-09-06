@@ -66,6 +66,8 @@ for face_bound in face_bounds:
         age.setInput(blob)
         age_predict = age.forward()
         age = age_classifications[age_predict[0].argmax()]
+
+        cv2.putText(img_cp, f'{gender}, {age}', (face_bound[0], face_bound[1] + 10))
         
 
     except Exception as e:

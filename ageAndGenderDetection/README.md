@@ -1,5 +1,5 @@
 # Age and Gender Detection using OpenCV
-=====================================
+--------------------------------------
 
 ## Overview
 -----------
@@ -17,7 +17,7 @@ This code uses OpenCV to detect faces in an image and predict the age and gender
 
 1. Place the image file to be processed in the same directory as the script.
 2. Update the `image_path` variable to point to the image file.
-3. Run the script using Python (e.g., `python script.py`).
+3. Run the script using Python (e.g., `python main.py`).
 4. The script will display the output image with detected faces and predicted age and gender.
 
 ## Code Explanation
@@ -39,7 +39,3 @@ The script performs face detection using the OpenCV `dnn` module and the pre-tra
 
 The script displays the output image with detected faces and predicted age and gender using OpenCV's `imshow` function.
 
-## Note
------
-
-This script assumes that the pre-trained models are stored in the `models` directory and that the input image is in the same directory as the script. You may need to adjust the file paths accordingly.

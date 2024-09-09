@@ -21,4 +21,5 @@ expression = 'disgust'
 
 plt.figure(figsize= (12,12))
 for i in range(1, 10, 1):
-    
+    plt.subplot(3,3,i)
+    img = load_img(folder)

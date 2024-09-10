@@ -5,3 +5,6 @@ from keras.preprocessing import image
 import cv2
 import numpy as np
 
+
+face_classifier = cv2.CascadeClassifier(r'C:\Users\CPCM\OneDrive\Desktop\opencv\emotionDetection\haarcascade_frontalface_default.xml')
+

@@ -18,7 +18,7 @@ picture_size = 48
 folder_path = ""
 
 expression = 'disgust'
-
+plt.style.use('dark_background')
 plt.figure(figsize= (12,12))
 for i in range(1, 10, 1):
     plt.subplot(3,3,i)

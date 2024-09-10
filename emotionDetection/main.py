@@ -13,3 +13,8 @@ classifier = load_model(r'C:\Users\CPCM\OneDrive\Desktop\opencv\emotionDetection
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy','Neutral', 'Sad', 'Surprise']
 
 cap = cv2.VideoCapture(0)
+
+while True:
+    _, frame = cap.read()
+    labels = []
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)

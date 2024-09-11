@@ -37,6 +37,15 @@ while True:
             label= emotion_labels[prediction.argmax()]
             label_position = (x,y)
             cv2.putText(frame, label, label_position, cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0),2)
-                  
+
+        else:
+            cv2.putText(frame, "no faces ", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0),2)
+
+    cv2.imshow("Emotion Detector", frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
 
     

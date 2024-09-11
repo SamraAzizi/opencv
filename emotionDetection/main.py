@@ -28,7 +28,8 @@ while True:
 
 
         if np.sum([roi_gray])!= 0:
-            roi = roi_gray
+            roi = roi_gray.astype('float')/255.0
+            roi = img_to_array(roi)
                   
 
     

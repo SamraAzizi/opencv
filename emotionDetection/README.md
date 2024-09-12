@@ -16,3 +16,16 @@ You can install the required packages using pip:
 
 ```bash
 pip install opencv-python keras tensorflow numpy
+
+## How to Run
+
+1. Clone the repository or download the files to your local machine.
+
+2. Ensure that the paths in the Python script (`emotion_detection.py`) are correctly set for:
+   - The Haar Cascade file (`haarcascade_frontalface_default.xml`).
+   - The pre-trained Keras model (`model.h5`).
+
+3. Run the script using Python:
+
+   ```bash
+   python emotion_detection.py

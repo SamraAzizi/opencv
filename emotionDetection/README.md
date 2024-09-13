@@ -1,5 +1,3 @@
-**Emotion Detector using Keras and OpenCV**
-=====================================================
 
 **Description**
 ---------------

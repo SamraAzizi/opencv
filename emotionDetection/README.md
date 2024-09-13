@@ -5,23 +5,7 @@
 ---------------
 
 This is a real-time emotion detector that uses a pre-trained Keras model to classify emotions from facial expressions. The detector uses OpenCV to capture video from the webcam, detect faces, and extract regions of interest (ROIs) for emotion classification.
-
-**Requirements**
----------------
-
-* Python 3.x
-* Keras
-* OpenCV
-* Pre-trained Keras model (model.h5)
-* Haar cascade classifier for face detection (haarcascade_frontalface_default.xml)
-
-**Usage**
----------
-
-1. Install the required libraries by running `pip install keras opencv-python`.
-2. Place the pre-trained Keras model (model.h5) and the Haar cascade classifier (haarcascade_frontalface_default.xml) in the same directory as the script.
-3. Run the script using Python (e.g., `python emotion_detector.py`).
-4. The script will start capturing video from the webcam and display the detected emotions in real-time.
+splay the detected emotions in real-time.
 5. Press 'q' to exit the script.
 
 **Code Explanation**

@@ -38,11 +38,4 @@ The code consists of the following steps:
 * Predict the emotion using the pre-trained Keras model.
 * Display the detected emotion on the frame.
 
-**Note**
-------
 
-<<<<<<< HEAD
-This script assumes that the pre-trained Keras model is trained on a dataset with the following emotion labels: ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']. You may need to modify the script if your model is trained on a different dataset.
-=======
-This script assumes that the pre-trained Keras model is trained on a dataset with the following emotion labels: ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']. You may need to modify the script if your model is trained on a different dataset.
->>>>>>> 1db389f0a3bf8172b6e146257c02f9cac1b5a934

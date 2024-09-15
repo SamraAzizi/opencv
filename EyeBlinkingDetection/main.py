@@ -33,7 +33,11 @@ while True:
         horizontal_line = cv2.line(frame, left_point, right_point, (0, 255, 0), 2)
         ver_line = cv2.line(frame,center_top, center_bottom, (0,255, 0) ,2)
 
-        ver_line_lenght = hypot((center_top[0] - center_bottom[0]))
+
+        hor_line_lenght = hypot((left_point[0] - right_point[0]), (left_point[1] - right_point[1]))
+        ver_line_lenght = hypot((center_top[0] - center_bottom[0]), center_top[1] - center_bottom[1])
+
+        
         
 
        # x = landmarks.part(36).x

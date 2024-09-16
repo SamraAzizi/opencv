@@ -14,7 +14,7 @@ def midpoint(p1, p2):
 font = cv2.FONT_HERSHEY_PLAIN
 
 def get_blinkingRatio(eye_points, facial_landmarks ):
-    left_point = (facial_landmarks.part(36).x, facial_landmarks.part(36).y)
+    left_point = (facial_landmarks.part(eye_points[0]).x, facial_landmarks.part(eye_points[0]).y)
     right_point = (landmarks.part(39).x, facial_landmarks.part(39).y)
 
     center_top = midpoint(facial_landmarks.part(37), facial_landmarks.part(38))

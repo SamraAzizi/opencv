@@ -15,9 +15,9 @@ font = cv2.FONT_HERSHEY_PLAIN
 
 def get_blinkingRatio(eye_points, facial_landmarks ):
     left_point = (facial_landmarks.part(eye_points[0]).x, facial_landmarks.part(eye_points[0]).y)
-    right_point = (landmarks.part(39).x, facial_landmarks.part(39).y)
+    right_point = (landmarks.part(eye_points[3]).x, facial_landmarks.part(eye_points[3]).y)
 
-    center_top = midpoint(facial_landmarks.part(37), facial_landmarks.part(38))
+    center_top = midpoint(facial_landmarks.part(eye_points[1]), facial_landmarks.part(eye_points[2]))
     center_bottom = midpoint(facial_landmarks.part(41), facial_landmarks.part(40))
 
     horizontal_line = cv2.line(frame, left_point, right_point, (0, 255, 0), 2)

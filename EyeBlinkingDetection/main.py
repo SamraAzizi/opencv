@@ -38,7 +38,10 @@ while True:
         ver_line_lenght = hypot((center_top[0] - center_bottom[0]), center_top[1] - center_bottom[1])
 
         
-        
+        ratio = hor_line_lenght / ver_line_lenght
+
+        if ratio > 6:
+            cv2.putText(frame, "BLINKING")
 
        # x = landmarks.part(36).x
        # y = landmarks.part(36).y

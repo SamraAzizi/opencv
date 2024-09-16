@@ -18,7 +18,7 @@ def get_blinkingRatio(eye_points, facial_landmarks ):
     right_point = (landmarks.part(eye_points[3]).x, facial_landmarks.part(eye_points[3]).y)
 
     center_top = midpoint(facial_landmarks.part(eye_points[1]), facial_landmarks.part(eye_points[2]))
-    center_bottom = midpoint(facial_landmarks.part(41), facial_landmarks.part(40))
+    center_bottom = midpoint(facial_landmarks.part(eye_points[5]), facial_landmarks.part(eye_points[4]))
 
     horizontal_line = cv2.line(frame, left_point, right_point, (0, 255, 0), 2)
     ver_line = cv2.line(frame,center_top, center_bottom, (0,255, 0) ,2)

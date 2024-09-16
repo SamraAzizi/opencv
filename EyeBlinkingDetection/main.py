@@ -11,7 +11,7 @@ predictor = dlib.shape_predictor(r"C:\Users\CPCM\OneDrive\Desktop\opencv\eyeDete
 def midpoint(p1, p2):
     return (int((p1.x + p2.x) / 2), int((p1.y + p2.y) / 2))
 
-font = cv2.FONT_HERSHEY_SIMPLEX
+font = cv2.FONT_HERSHEY_PLAIN
 
 while True:
     _, frame = cap.read()
@@ -42,8 +42,8 @@ while True:
         
         ratio = hor_line_lenght / ver_line_lenght
 
-        if ratio > 6:
-            cv2.putText(frame, "BLINKING", (50, 150), font, 3, (255, 0, 0))
+        if ratio > 5.7:
+            cv2.putText(frame, "BLINKING", (50, 150), font, 7, (255, 0, 0))
 
        # x = landmarks.part(36).x
        # y = landmarks.part(36).y

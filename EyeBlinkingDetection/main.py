@@ -47,7 +47,7 @@ while True:
         landmarks = predictor(gray, face)
 
         left_eye_ratio = get_blinking_ratio([36, 37, 38, 39, 40, 41], landmarks )
-        
+        rigth_eye_ratio = get_blinking_ratio([42, 43, 44, 45, 46, 47, 48], landmarks)
 
         if left_eye_ratio > 5.7:
             cv2.putText(frame, "BLINKING", (50, 150), font, 7, (255, 0, 0))

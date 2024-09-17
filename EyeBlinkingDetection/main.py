@@ -29,7 +29,29 @@ def get_blinking_ratio(eye_points, facial_landmarks, frame):
     horizontal_line = cv2.line(frame, left_point, right_point, (0, 255, 0), 2)
     vertical_line = cv2.line(frame, center_top, center_bottom, (0, 255, 0), 2)
 
-    # Calc
+    # Calculate lengths of the horizontal and vertical lines
+    hor_line_length = hypot((left_point[0] - right_point[0]), (left_point[1] - right_point[1]))
+    ver_line_length = hypot((center_top[0] - center_bottom[0]), (center_top[1] - center_bottom[1]))
+
+    # Calculate the ratio
+    ratio = hor_line_length / ver_line_length
+
+    # Print the ratio for debugging purposes
+    #print(f"Blinking Ratio: {ratio}")
+
+    return ratio
+
+# Main loop for video capture
+while True:
+    _, frame = cap.read()
+
+    # Convert frame to grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Detect faces in the frame
+    faces = detector(gray)
+
+    for face in faces:
         # Get coordinates of the face
         x, y = face.left(), face.top()
         x1, y1 = face.right(), face.bottom()

@@ -41,7 +41,15 @@ def get_blinking_ratio(eye_points, facial_landmarks, frame):
 
     return ratio
 
-# Main loop for 
+# Main loop for video capture
+while True:
+    _, frame = cap.read()
+
+    # Convert frame to grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Detect faces in the frame
+    faces = detector(gray)
 
     for face in faces:
         # Get coordinates of the face

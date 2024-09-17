@@ -13,7 +13,7 @@ def midpoint(p1, p2):
 
 font = cv2.FONT_HERSHEY_PLAIN
 
-def get_blinkingRatio(eye_points, facial_landmarks ):
+def get_blinking_ratio(eye_points, facial_landmarks ):
     left_point = (facial_landmarks.part(eye_points[0]).x, facial_landmarks.part(eye_points[0]).y)
     right_point = (landmarks.part(eye_points[3]).x, facial_landmarks.part(eye_points[3]).y)
 
@@ -45,9 +45,11 @@ while True:
        # cv2.rectangle(frame, (x,y), (x1, y1), (0, 255, 0), 2)
 
         landmarks = predictor(gray, face)
+
+        left_eye_ratio = get_blinking_ratio([36, 37, 38, 39, 40, 41], landmarks )
         
 
-        if ratio > 5.7:
+        if left_eye_ratio > 5.7:
             cv2.putText(frame, "BLINKING", (50, 150), font, 7, (255, 0, 0))
 
        # x = landmarks.part(36).x

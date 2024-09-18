@@ -6,13 +6,6 @@ This project uses OpenCV and Dlib libraries to detect eye blinks in real-time vi
 
 ## Dependencies
 
-* OpenCV (cv2)
-* Dlib
-* NumPy (np)
-* Math library (for hypot function)
-
-## How to Use
-
 1. Install the required dependencies.
 2. Run the script using Python.
 3. The script will capture video from the default camera (index 0).

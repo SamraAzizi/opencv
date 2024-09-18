@@ -10,23 +10,7 @@ This project uses OpenCV and Dlib libraries to detect eye blinks in real-time vi
 * Dlib
 * NumPy (np)
 * Math library (for hypot function)
-
-## How to Use
-
-1. Install the required dependencies.
-2. Run the script using Python.
-3. The script will capture video from the default camera (index 0).
-4. The script will display the video feed with annotations.
-5. When the blinking ratio exceeds the threshold (5.7 in this case), the script will display "BLINKING" on the screen.
-6. Press the 'ESC' key to exit the script.
-
-## Code Explanation
-
-### Functions
-
-* `midpoint(p1, p2)`: calculates the midpoint between two points.
-* `get_blinking_ratio(eye_points, facial_landmarks, frame)`: calculates the blinking ratio of an eye.
-* `main loop`: captures video, detects faces, calculates blinking ratio, and displays the result.
+aces, calculates blinking ratio, and displays the result.
 
 ### Variables
 

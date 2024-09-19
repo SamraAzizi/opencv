@@ -1,12 +1,17 @@
 import numpy as np
 import cv2
 
-def get_limits(color):
+cap = cv2.VideoCapture(2)
 
-    c = np.uint8([[color]]) # here insert the bgr values which you want to convert
-    hsvC = cv2.cvtColor(c,cv2.COLOR_BGR2HSV)
+while True:
+    ret, frame, = cap.read()
 
-lowerLimit = hsvC[0][0][0] - 10, 100, 100
-upperLimit = hsvC[0][0][0] + 10, 255, 255
+    cv2.imshow('frame', frame)
 
-lowerLimit - np.array(lowerLimit, dtype=np.uint8)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+
+
+cap.release
+cv2.destroyAllWindows()

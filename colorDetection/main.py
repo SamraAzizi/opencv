@@ -1,9 +1,22 @@
 import numpy as np
 import cv2
-from util import get_limits
 from PIL import Image  # Fixed import, should be "Image" from PIL, not "pillow"
 
-yellow = [0, 255, 255]
+# Define the function to get HSV limits for a given BGR color
+def get_limits(color):
+    # Convert BGR to HSV
+    bgr_color = np.uint8([[color]])  # Convert color to a format usable by OpenCV
+    hsv_color = cv2.cvtColor(bgr_color, cv2.COLOR_BGR2HSV)
+
+    hue = hsv_color[0][0][0]
+    
+    # Define limits with some range around the hue
+    lower_limit = np.array([hue - 10, 100, 100])
+    upper_limit = np.array([hue + 10, 255, 255])
+    
+    return lower_limit, upper_limit
+
+yellow = [0, 255, 255]  # BGR format for yellow
 cap = cv2.VideoCapture(2)
 
 while True:
@@ -20,7 +33,7 @@ while True:
     lowerLimit, upperLimit = get_limits(color=yellow)
 
     # Create a mask for the color detection based on HSV values
-    mask = cv2.inRange(hsvImage, np.array(lowerLimit), np.array(upperLimit))
+    mask = cv2.inRange(hsvImage, lowerLimit, upperLimit)
 
     # Convert mask to an image using PIL
     mask_image = Image.fromarray(mask)

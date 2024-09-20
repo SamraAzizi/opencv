@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-from PIL import Image  # Fixed import, should be "Image" from PIL, not "pillow"
 
 # Define the function to get HSV limits for a given BGR color
 def get_limits(color):
@@ -16,9 +15,15 @@ def get_limits(color):
     
     return lower_limit, upper_limit
 
-yellow = [0, 255, 255]  # BGR format for yellow
-cap = cv2.VideoCapture(0)
+# Define colors in BGR format
+yellow = [0, 255, 255]  # Yellow
+red = [0, 0, 255]       # Red
+green = [0, 255, 0]     # Green
+blue = [255, 0, 0]      # Blue
 
+colors = {'Yellow': yellow, 'Red': red, 'Green': green, 'Blue': blue}
+
+cap = cv2.VideoCapture(0)  # Use 0 or another index to select the correct camera
 
 while True:
     ret, frame = cap.read()
@@ -30,17 +35,16 @@ while True:
     # Convert the frame from BGR to HSV
     hsvImage = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # Get the color limits (lower and upper bounds) for yellow
-    lowerLimit, upperLimit = get_limits(color=yellow)
+    # Loop through each color and apply the mask
+    for color_name, bgr_color in colors.items():
+        # Get the color limits (lower and upper bounds) for the current color
+        lowerLimit, upperLimit = get_limits(color=bgr_color)
 
-    # Create a mask for the color detection based on HSV values
-    mask = cv2.inRange(hsvImage, lowerLimit, upperLimit)
+        # Create a mask for the color detection based on HSV values
+        mask = cv2.inRange(hsvImage, lowerLimit, upperLimit)
 
-    # Convert mask to an image using PIL
-    mask_image = Image.fromarray(mask)
-
-    # Display the mask
-    cv2.imshow('frame', mask)
+        # Display the mask for the current color
+        cv2.imshow(f'{color_name} Detection', mask)
 
     # Exit loop if 'q' is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):

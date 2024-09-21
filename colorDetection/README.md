@@ -17,6 +17,12 @@ The program uses the following steps to detect colors:
 * **Loop through Colors**: The program loops through each color and applies a mask to the video frame based on the HSV values.
 * **Display Masks**: The program displays the mask for each color detection.
 
+## Usage
+-----
+
+1. Run the program using Python (e.g., `python main.py`).
+2. The program will display four windows, each showing the detection of a different color (yellow, red, green, and blue).
+3. Press 'q' to exit the program.
 
 ## Dependencies
 --------------

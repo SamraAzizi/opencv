@@ -1,13 +1,13 @@
 # Color Detection using OpenCV
--------------------------------
+----------------------------------
 
 ## Overview
------------
+-------------
 
 This code is a color detection program that uses OpenCV to detect and display different colors in real-time using a webcam. The program can detect four colors: yellow, red, green, and blue.
 
 ## How it Works
-----------------
+-------------------
 
 The program uses the following steps to detect colors:
 
@@ -18,20 +18,20 @@ The program uses the following steps to detect colors:
 * **Display Masks**: The program displays the mask for each color detection.
 
 ## Usage
------
+---------
 
 1. Run the program using Python (e.g., `python main.py`).
 2. The program will display four windows, each showing the detection of a different color (yellow, red, green, and blue).
 3. Press 'q' to exit the program.
 
 ## Dependencies
---------------
+------------------
 
 * OpenCV (cv2)
 * NumPy (np)
 
 ## Code Structure
------------------
+--------------------
 
 The code is organized into the following sections:
 

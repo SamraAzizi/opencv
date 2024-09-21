@@ -20,7 +20,7 @@ The program uses the following steps to detect colors:
 ## Usage
 -----
 
-1. Run the program using Python (e.g., `python color_detection.py`).
+1. Run the program using Python (e.g., `python main.py`).
 2. The program will display four windows, each showing the detection of a different color (yellow, red, green, and blue).
 3. Press 'q' to exit the program.
 
